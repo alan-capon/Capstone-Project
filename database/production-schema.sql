@@ -27,12 +27,22 @@ create table app_user_role (
         references app_role(app_role_id)
 );
 
+create table product (
+	product_id int primary key auto_increment,
+    `name` varchar(50) not null,
+    `description` varchar(1000)
+);
+
 create table product_reviews (
-	id int primary key auto_increment,
+	product_review_id int primary key auto_increment,
     app_user_id int not null,
+    product_id int not null,
     `date` date not null,
     review varchar(1000) not null,
     constraint fk_product_reviews_app_user_id
 		foreign key (app_user_id)
-        references app_user(app_user_id)
+        references app_user(app_user_id),
+	constraint fk_product_reviews_product_id
+		foreign key (product_id)
+        references product(product_id)
 );
