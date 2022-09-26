@@ -4,7 +4,7 @@ use product_reviews;
 
 create table app_user (
 	app_user_id int primary key auto_increment,
-    username varchar(50) not null unique,
+    username varchar(255) not null unique,
     password_hash varchar(2048) not null,
     `disable` bit not null default(0)
 );
