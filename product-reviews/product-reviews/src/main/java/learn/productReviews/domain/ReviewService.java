@@ -38,14 +38,43 @@ public class ReviewService {
 
     public Result<Review> add(Review review){
 
+        Result<Review> result = validate(review);
+
+        if (review != null && review.getId() > 0){
+            result.addErrorMessage("Review ID should not be set", ResultType.INVALID);
+        }
+
+        if (result.isSuccess()){
+            result.setPayload(repository.add(review));
+        }
+        return result;
     }
 
     public Result<Review> update(Review review){
 
+        Result<Review> result = validate(review);
+
+        if (review.getId() <= 0){
+            result.addErrorMessage("Review ID is required.", ResultType.INVALID);
+        }
+
+        if (result.isSuccess()){
+            if (repository.update(review)){
+                result.setPayload(review);
+            } else {
+                result.addErrorMessage("Review %s was not found.", ResultType.NOT_FOUND, review.getId());
+            }
+        }
+        return result;
     }
 
     public Result<Review> deleteById(int id){
 
+        Result<Review> result = new Result<>();
+        if (!repository.deleteById(id)){
+            result.addErrorMessage("Review %s was not found.", ResultType.NOT_FOUND, id);
+        }
+        return result;
     }
 
     private Result<Review> validate(Review review){
