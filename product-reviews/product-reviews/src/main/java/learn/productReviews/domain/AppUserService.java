@@ -14,6 +14,10 @@ import java.util.List;
 public class AppUserService implements UserDetailsService {
     private final AppUserRepository repository;
     private final PasswordEncoder encoder;
+
+    private static final int MAX_USERNAME_LENGTH = 255;
+    private static final int MIN_PASSWORD_LENGTH = 8;
+
     public AppUserService(AppUserRepository repository,
                           PasswordEncoder encoder) {
         this.repository = repository;
@@ -38,13 +42,15 @@ public class AppUserService implements UserDetailsService {
         if (username == null || username.isBlank()) {
             throw new ValidationException("username is required");
         }
-        if (username.length() > 255) {
-            throw new ValidationException("username must be less than 255 characters");
+        if (username.length() > MAX_USERNAME_LENGTH) {
+            String errorMsg = String.format("username must be less than %s characters", MAX_USERNAME_LENGTH);
+            throw new ValidationException(errorMsg);
         }
     }
     private void validatePassword(String password) {
-        if (password == null || password.length() < 8) {
-            throw new ValidationException("password must be at least 8 characters");
+        if (password == null || password.length() < MIN_PASSWORD_LENGTH) {
+            String errorMsg = String.format("password must be at least %S characters", MIN_PASSWORD_LENGTH);
+            throw new ValidationException(errorMsg);
         }
         int digits = 0;
         int letters = 0;

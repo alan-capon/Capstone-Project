@@ -29,7 +29,7 @@ create table app_user_role (
 
 create table product (
 	product_id int primary key auto_increment,
-    `name` varchar(50) not null,
+    `name` varchar(255) not null,
     `description` varchar(1000)
 );
 

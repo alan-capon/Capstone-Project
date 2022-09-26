@@ -6,15 +6,17 @@ public class Review {
 
     private int id;
     private AppUser user;
+    private Product product;
     private LocalDate date;
     private String content;
 
     public Review() {
     }
 
-    public Review(int id, AppUser user, LocalDate date, String content) {
+    public Review(int id, AppUser user, Product product, LocalDate date, String content) {
         this.id = id;
         this.user = user;
+        this.product = product;
         this.date = date;
         this.content = content;
     }
@@ -49,5 +51,13 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

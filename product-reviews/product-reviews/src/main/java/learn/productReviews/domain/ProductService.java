@@ -6,25 +6,27 @@ import java.util.List;
 
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductRepository repository;
+    private static final int MAX_PRODUCT_NAME_LENGTH = 255;
+    private static final int MAX_PRODUCT_DESCRIPTION_LENGTH = 1000;
 
     public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+        this.repository = productRepository;
     }
 
     public List<Product> findAll(){
 
-        return productRepository.findAll();
+        return repository.findAll();
     }
 
     public Product findById(int id){
 
-        return productRepository.findById(id);
+        return repository.findById(id);
     }
 
     public Product findByName(String name){
 
-        return productRepository.findByName(name);
+        return repository.findByName(name);
     }
 
     public Result<Product> add(Product product){
@@ -36,7 +38,7 @@ public class ProductService {
         }
 
         if (result.isSuccess()){
-            result.setPayload(productRepository.add(product));
+            result.setPayload(repository.add(product));
         }
 
         return result;
@@ -51,7 +53,7 @@ public class ProductService {
         }
 
         if (result.isSuccess()){
-            if (productRepository.update(product)){
+            if (repository.update(product)){
                 result.setPayload(product);
             } else {
                 result.addErrorMessage("Product %s was not found.", ResultType.NOT_FOUND, product.getId());
@@ -63,7 +65,7 @@ public class ProductService {
     public Result<Product> deleteById(int id){
 
         Result<Product> result = new Result<>();
-        if (!productRepository.deleteById(id)){
+        if (!repository.deleteById(id)){
             result.addErrorMessage("Product %s was not found.", ResultType.NOT_FOUND, id);
         }
         return result;
@@ -72,13 +74,23 @@ public class ProductService {
     private Result<Product> validate(Product product){
 
         Result<Product> result = new Result<>();
-        if(product == null){
+        if (product == null){
             result.addErrorMessage("Product cannot be null.", ResultType.INVALID);
             return result;
         }
 
-        if(product.getName() == null || product.getName().isBlank()){
+        if (product.getName() == null || product.getName().isBlank()){
             result.addErrorMessage("Product name is required.", ResultType.INVALID);
+        }
+
+        if (product.getName().length() > MAX_PRODUCT_NAME_LENGTH){
+            result.addErrorMessage("Product name must be less than %s characters.",
+                    ResultType.INVALID, MAX_PRODUCT_NAME_LENGTH);
+        }
+
+        if (product.getDescription().length() > MAX_PRODUCT_DESCRIPTION_LENGTH){
+            result.addErrorMessage("Product description must be less than %s characters.",
+                    ResultType.INVALID, MAX_PRODUCT_DESCRIPTION_LENGTH);
         }
 
         return result;
