@@ -12,13 +12,14 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.List;
 
-public class AppUserJdbcTemplateRepository {
+public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     private final JdbcTemplate jdbcTemplate;
     public AppUserJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public AppUser findByUsername(String username) {
         List<String> roles = getRolesByUsername(username);
         final String sql = "select app_user_id, username, password_hash, disabled "
@@ -29,6 +30,7 @@ public class AppUserJdbcTemplateRepository {
                 .findFirst().orElse(null);
     }
 
+    @Override
     public AppUser create(AppUser user) {
         final String sql = "insert into app_user (username, password_hash) values (?, ?);";
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
@@ -46,6 +48,7 @@ public class AppUserJdbcTemplateRepository {
         return user;
     }
 
+    @Override
     public void update(AppUser user) {
         final String sql = "update app_user set "
                 + "username = ?, "

@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-public class ProductJdbcTemplateRepository {
+public class ProductJdbcTemplateRepository implements ProductRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -18,6 +18,7 @@ public class ProductJdbcTemplateRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public Product findByName(String name) {
         final String sql = """
                 select product_id, name
@@ -29,6 +30,7 @@ public class ProductJdbcTemplateRepository {
                 .findFirst().orElse(null);
     }
 
+    @Override
     public Product add(Product product) {
 
         final String sql = """
@@ -52,6 +54,7 @@ public class ProductJdbcTemplateRepository {
         return product;
     }
 
+    @Override
     public boolean update(Product product) {
 
         final String sql = """
