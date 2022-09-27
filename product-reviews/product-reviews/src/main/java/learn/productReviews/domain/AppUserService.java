@@ -1,5 +1,6 @@
 package learn.productReviews.domain;
 
+import learn.productReviews.data.AppUserRepository;
 import learn.productReviews.models.AppUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
