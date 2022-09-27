@@ -5,18 +5,18 @@ import java.time.LocalDate;
 public class Review {
 
     private int id;
-    private AppUser appUser;
-    private Product product;
+    private int appUserId;
+    private int productId;
     private LocalDate date;
     private String content;
 
     public Review() {
     }
 
-    public Review(int id, AppUser user, Product product, LocalDate date, String content) {
+    public Review(int id, int appUserId, int productId, LocalDate date, String content) {
         this.id = id;
-        this.appUser = user;
-        this.product = product;
+        this.appUserId = appUserId;
+        this.productId = productId;
         this.date = date;
         this.content = content;
     }
@@ -29,12 +29,20 @@ public class Review {
         this.id = id;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public int getAppUserId() {
+        return appUserId;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setAppUserId(int appUserId) {
+        this.appUserId = appUserId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public LocalDate getDate() {
@@ -51,13 +59,5 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 }

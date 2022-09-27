@@ -87,12 +87,12 @@ public class ReviewService {
             return result;
         }
 
-        // checks if user exists and is enabled
-        if(review.getAppUser() == null || !review.getAppUser().isEnabled()){
+        // checks if user exists
+        if(review.getAppUserId() <= 0){
             result.addErrorMessage("User is required.", ResultType.INVALID);
         }
 
-        if (review.getProduct() == null){
+        if (review.getProductId() <= 0){
             result.addErrorMessage("Product is required.", ResultType.INVALID);
         }
 

@@ -5,6 +5,7 @@ import learn.productReviews.models.AppUser;
 import learn.productReviews.models.Product;
 import learn.productReviews.models.Review;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
@@ -20,6 +21,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
     public ReviewJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     public List<Review> findAll() throws DataAccessException{
         final  String sql = """
@@ -68,8 +70,8 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, review.getAppUser().getAppUserId());
-            ps.setInt(2, review.getProduct().getId());
+            ps.setInt(1, review.getAppUserId());
+            ps.setInt(2, review.getProductId());
             ps.setDate(3, Date.valueOf(review.getDate()));
             ps.setString(4, review.getContent());
             return ps;
