@@ -13,8 +13,8 @@ class ProductServiceTest {
     @Autowired
     ProductService service;
 
-    @MockBean
-    ProductRepository repository;
+//    @MockBean
+//    ProductRepository repository;
 
     @Test
     void findAll() {

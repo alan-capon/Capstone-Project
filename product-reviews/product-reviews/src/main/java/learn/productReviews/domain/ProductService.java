@@ -1,5 +1,7 @@
 package learn.productReviews.domain;
 
+import learn.productReviews.data.DataAccessException;
+import learn.productReviews.data.ProductRepository;
 import learn.productReviews.models.Product;
 
 import java.util.List;
@@ -14,22 +16,22 @@ public class ProductService {
         this.repository = productRepository;
     }
 
-    public List<Product> findAll(){
+    public List<Product> findAll() throws DataAccessException {
 
         return repository.findAll();
     }
 
-    public Product findById(int id){
+    public Product findById(int id) throws DataAccessException {
 
         return repository.findById(id);
     }
 
-    public Product findByName(String name){
+    public Product findByName(String name) throws DataAccessException {
 
         return repository.findByName(name);
     }
 
-    public Result<Product> add(Product product){
+    public Result<Product> add(Product product) throws DataAccessException {
 
         Result<Product> result = new Result<>();
 
@@ -44,7 +46,7 @@ public class ProductService {
         return result;
     }
 
-    public Result<Product> update(Product product){
+    public Result<Product> update(Product product) throws DataAccessException {
 
         Result<Product> result = validate(product);
 
@@ -62,7 +64,7 @@ public class ProductService {
         return result;
     }
 
-    public Result<Product> deleteById(int id){
+    public Result<Product> deleteById(int id) throws DataAccessException {
 
         Result<Product> result = new Result<>();
         if (!repository.deleteById(id)){

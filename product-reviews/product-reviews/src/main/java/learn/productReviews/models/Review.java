@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Review {
 
     private int id;
-    private AppUser user;
+    private AppUser appUser;
     private Product product;
     private LocalDate date;
     private String content;
@@ -15,7 +15,7 @@ public class Review {
 
     public Review(int id, AppUser user, Product product, LocalDate date, String content) {
         this.id = id;
-        this.user = user;
+        this.appUser = user;
         this.product = product;
         this.date = date;
         this.content = content;
@@ -29,12 +29,12 @@ public class Review {
         this.id = id;
     }
 
-    public AppUser getUser() {
-        return user;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setUser(AppUser user) {
-        this.user = user;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public LocalDate getDate() {

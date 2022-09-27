@@ -8,8 +8,9 @@ import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.List;
 
-public class ProductJdbcTemplateRepository {
+public class ProductJdbcTemplateRepository implements ProductRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -17,7 +18,19 @@ public class ProductJdbcTemplateRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Product findByName(String name) {
+
+    @Override
+    public List<Product> findAll() throws DataAccessException{
+        return null;
+    }
+
+    @Override
+    public Product findById(int id) throws DataAccessException{
+        return null;
+    }
+
+    @Override
+    public Product findByName(String name) throws DataAccessException{
         final String sql = """
                 select product_id, name
                 from product
@@ -28,7 +41,8 @@ public class ProductJdbcTemplateRepository {
                 .findFirst().orElse(null);
     }
 
-    public Product add(Product product) {
+    @Override
+    public Product add(Product product) throws DataAccessException{
 
         final String sql = """
                 insert into product (name, description)
@@ -51,7 +65,8 @@ public class ProductJdbcTemplateRepository {
         return product;
     }
 
-    public boolean update(Product product) {
+    @Override
+    public boolean update(Product product) throws DataAccessException{
 
         final String sql = """
                 update product set
@@ -61,6 +76,11 @@ public class ProductJdbcTemplateRepository {
                 """;
 
         return jdbcTemplate.update(sql, product.getName(), product.getDescription(), product.getId()) > 0;
+    }
+
+    @Override
+    public boolean deleteById(int id) throws DataAccessException{
+        return false;
     }
 
 }

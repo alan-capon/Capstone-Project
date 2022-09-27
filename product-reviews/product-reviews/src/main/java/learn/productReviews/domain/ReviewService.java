@@ -1,5 +1,7 @@
 package learn.productReviews.domain;
 
+import learn.productReviews.data.DataAccessException;
+import learn.productReviews.data.ReviewRepository;
 import learn.productReviews.models.AppUser;
 import learn.productReviews.models.Product;
 import learn.productReviews.models.Review;
@@ -16,27 +18,27 @@ public class ReviewService {
         this.repository = repository;
     }
 
-    public List<Review> findAll(){
+    public List<Review> findAll() throws DataAccessException {
 
         return repository.findAll();
     }
 
-    public Review findById(int id){
+    public Review findById(int id) throws DataAccessException {
 
         return repository.findById(id);
     }
 
-    public List<Review> findByUser(AppUser user){
+    public List<Review> findByUser(AppUser user) throws DataAccessException {
 
         return repository.findByUser(user);
     }
 
-    public List<Review> findByProduct(Product product){
+    public List<Review> findByProduct(Product product) throws DataAccessException {
 
         return repository.findByProduct(product);
     }
 
-    public Result<Review> add(Review review){
+    public Result<Review> add(Review review) throws DataAccessException {
 
         Result<Review> result = validate(review);
 
@@ -50,7 +52,7 @@ public class ReviewService {
         return result;
     }
 
-    public Result<Review> update(Review review){
+    public Result<Review> update(Review review) throws DataAccessException {
 
         Result<Review> result = validate(review);
 
@@ -68,7 +70,7 @@ public class ReviewService {
         return result;
     }
 
-    public Result<Review> deleteById(int id){
+    public Result<Review> deleteById(int id) throws DataAccessException {
 
         Result<Review> result = new Result<>();
         if (!repository.deleteById(id)){
@@ -86,7 +88,7 @@ public class ReviewService {
         }
 
         // checks if user exists and is enabled
-        if(review.getUser() == null || !review.getUser().isEnabled()){
+        if(review.getAppUser() == null || !review.getAppUser().isEnabled()){
             result.addErrorMessage("User is required.", ResultType.INVALID);
         }
 
