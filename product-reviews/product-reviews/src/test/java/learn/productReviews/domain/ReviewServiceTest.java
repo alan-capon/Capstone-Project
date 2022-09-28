@@ -50,7 +50,12 @@ class ReviewServiceTest {
     }
 
     @Test
-    void shouldDeleteById() {
+    void shouldDeleteById() throws DataAccessException {
+
+        when(repository.deleteById(1)).thenReturn(true);
+        Result<Review> result = service.deleteById(1);
+
+        assertTrue(result.isSuccess());
     }
 
     @Test
