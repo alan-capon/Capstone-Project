@@ -96,12 +96,12 @@ public class ProductService {
             result.addErrorMessage("Product name is required.", ResultType.INVALID);
         }
 
-        if (product.getName().length() > MAX_PRODUCT_NAME_LENGTH){
+        if ((product.getName() != null) && (product.getName().length() > MAX_PRODUCT_NAME_LENGTH)){
             result.addErrorMessage("Product name must be less than %s characters.",
                     ResultType.INVALID, MAX_PRODUCT_NAME_LENGTH);
         }
 
-        if (product.getDescription().length() > MAX_PRODUCT_DESCRIPTION_LENGTH){
+        if ((product.getDescription() != null) && (product.getDescription().length() > MAX_PRODUCT_DESCRIPTION_LENGTH)){
             result.addErrorMessage("Product description must be less than %s characters.",
                     ResultType.INVALID, MAX_PRODUCT_DESCRIPTION_LENGTH);
         }

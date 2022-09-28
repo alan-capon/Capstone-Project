@@ -80,8 +80,15 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldNotAddProductWithNullOrBlankFields(){
+    void shouldNotAddProductWithNullOrBlankName() throws DataAccessException {
 
+        Product expected = new Product(0, null, "");
+
+        when(repository.add(expected)).thenReturn(null);
+        Result<Product> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
     }
 
     @Test
