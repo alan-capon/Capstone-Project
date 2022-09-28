@@ -1,12 +1,18 @@
 package learn.productReviews.domain;
 
+import learn.productReviews.data.DataAccessException;
 import learn.productReviews.data.ReviewRepository;
+import learn.productReviews.models.Product;
+import learn.productReviews.models.Review;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ReviewServiceTest {
@@ -18,19 +24,28 @@ class ReviewServiceTest {
     ReviewRepository repository;
 
     @Test
-    void findAll() {
+    void shouldAdd() throws DataAccessException {
+
+        Review expected = new Review(0, 1, 1, LocalDate.now(), "test");
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Review> result = service.add(expected);
+
+        assertTrue(result.isSuccess());
+        assertNotNull(result.getPayload());
     }
 
     @Test
-    void findById() {
+    void shouldUpdate() {
     }
 
     @Test
-    void findByUser() {
+    void shouldDeleteById() {
     }
 
     @Test
-    void findByProduct() {
+    void shouldNotDeleteNonExistentReview() {
     }
 
     @Test

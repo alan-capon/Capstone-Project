@@ -1,6 +1,7 @@
 package learn.productReviews.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Review {
 
@@ -59,5 +60,18 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Review review = (Review) o;
+        return getAppUserId() == review.getAppUserId() && getProductId() == review.getProductId() && Objects.equals(getDate(), review.getDate()) && Objects.equals(getContent(), review.getContent());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAppUserId(), getProductId(), getDate(), getContent());
     }
 }

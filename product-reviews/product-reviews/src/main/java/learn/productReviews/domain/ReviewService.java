@@ -91,11 +91,11 @@ public class ReviewService {
 
         // checks if user exists
         if(review.getAppUserId() <= 0){
-            result.addErrorMessage("User is required.", ResultType.INVALID);
+            result.addErrorMessage("User ID is required.", ResultType.INVALID);
         }
 
         if (review.getProductId() <= 0){
-            result.addErrorMessage("Product is required.", ResultType.INVALID);
+            result.addErrorMessage("Product ID is required.", ResultType.INVALID);
         }
 
         if (review.getDate() == null){
