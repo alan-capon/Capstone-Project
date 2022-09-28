@@ -41,11 +41,13 @@ class ProductServiceTest {
     void shouldNotAddExistingProduct() throws DataAccessException {
 
         Product existing = new Product(1, "existing product", "");
+        Product expected = new Product(0, "existing product", "");
         List<Product> products = new ArrayList<>();
         products.add(existing);
 
         when(repository.findAll()).thenReturn(products);
-        Result<Product> result = service.add(existing);
+        when(repository.add(expected)).thenReturn(null);
+        Result<Product> result = service.add(expected);
 
         assertFalse(result.isSuccess());
         assertNull(result.getPayload());

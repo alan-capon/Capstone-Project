@@ -35,7 +35,7 @@ public class ProductService {
 
     public Result<Product> add(Product product) throws DataAccessException {
 
-        Result<Product> result = new Result<>();
+        Result<Product> result = validate(product);
 
         if (product != null && product.getId() > 0){
             result.addErrorMessage("Product ID should not be set.", ResultType.INVALID);
