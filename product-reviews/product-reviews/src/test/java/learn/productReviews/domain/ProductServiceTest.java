@@ -30,7 +30,15 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldUpdate() {
+    void shouldUpdate() throws DataAccessException {
+
+        Product expected = new Product(1, "product", "");
+
+        when(repository.update(expected)).thenReturn(true);
+
+        Result<Product> result = service.update(expected);
+
+        assertTrue(result.isSuccess());
     }
 
     @Test
