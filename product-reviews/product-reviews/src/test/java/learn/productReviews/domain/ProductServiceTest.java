@@ -23,6 +23,16 @@ class ProductServiceTest {
     @MockBean
     ProductRepository repository;
 
+    private static final String TEST_STRING_555_CHARACTERS =
+            "Mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n" +
+            "Oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
+            "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" +
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" +
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" +
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" +
+            "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" +
+            "cccccccccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n";
+
     @Test
     void shouldAdd() throws DataAccessException {
 
@@ -96,10 +106,16 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldNotAddProductWhenNameIsTooLong(){
+    void shouldNotAddProductWhenNameIsTooLong() throws DataAccessException {
 
-        
+        Product expected = new Product(0, "", "");
+        expected.setName(TEST_STRING_555_CHARACTERS);
 
+        when(repository.add(expected)).thenReturn(null);
+        Result<Product> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
     }
 
     @Test
