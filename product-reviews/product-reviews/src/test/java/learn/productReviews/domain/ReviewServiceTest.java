@@ -37,7 +37,16 @@ class ReviewServiceTest {
     }
 
     @Test
-    void shouldUpdate() {
+    void shouldUpdate() throws DataAccessException {
+
+        Review expected = new Review(1, 1, 1, LocalDate.now(), "test");
+
+        when(repository.update(expected)).thenReturn(true);
+
+        Result<Review> result = service.update(expected);
+
+        assertTrue(result.isSuccess());
+        assertNotNull(result.getPayload());
     }
 
     @Test
