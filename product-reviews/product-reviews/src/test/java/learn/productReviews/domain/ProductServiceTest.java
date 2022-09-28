@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -35,7 +38,17 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldNotAddExistingProduct() {
+    void shouldNotAddExistingProduct() throws DataAccessException {
+
+        Product existing = new Product(1, "existing product", "");
+        List<Product> products = new ArrayList<>();
+        products.add(existing);
+
+        when(repository.findAll()).thenReturn(products);
+        Result<Product> result = service.add(existing);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
     }
 
     @Test
