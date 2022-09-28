@@ -59,7 +59,13 @@ class ReviewServiceTest {
     }
 
     @Test
-    void shouldNotDeleteNonExistentReview() {
+    void shouldNotDeleteNonExistentReview() throws DataAccessException {
+
+        Result<Review> result = service.deleteById(1024);
+
+        assertFalse(result.isSuccess());
+        assertEquals(1, result.getErrorMessages().size());
+        assertTrue(result.getErrorMessages().get(0).contains("Review 1024 was not found"));
     }
 
     @Test
