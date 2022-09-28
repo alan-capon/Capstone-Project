@@ -54,6 +54,36 @@ class ProductServiceTest {
     }
 
     @Test
+    void shouldNotAddWhenProductIdIsSet() throws DataAccessException {
+
+        Product expected = new Product(1, "New Product", "");
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Product> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
+
+    }
+
+    @Test
+    void shouldNotAddNullProduct(){
+
+    }
+
+    @Test
+    void shouldNotAddProductWithNullOrBlankFields(){
+
+    }
+
+    @Test
+    void shouldNotAddProductWhenNameIsTooLong(){
+
+
+    }
+
+    @Test
     void shouldUpdate() throws DataAccessException {
 
         Product expected = new Product(1, "product", "");
