@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a0f7f8ba-1935-4073-b8c2-058ae8b26b17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/AppUserJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/AppUserJdbcTemplateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ProductJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ProductJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/reviews/data/ReviewJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/reviews/data/ReviewJdbcTemplateRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/ProductJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/ProductJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/reviews/data/ReviewJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/reviews/data/ReviewJdbcTemplateRepositoryTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -65,8 +61,8 @@
       <recent name="reviews.data" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ReviewJdbcTemplateRepositoryTest.shouldDelete">
-    <configuration name="ReviewJdbcTemplateRepositoryTest.shouldCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ProductJdbcTemplateRepositoryTest.shouldUpdate">
+    <configuration name="ProductJdbcTemplateRepositoryTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Review-server" />
       <extension name="coverage">
         <pattern>
@@ -75,14 +71,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ReviewJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldCreate" />
+      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="findAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest.shouldDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductJdbcTemplateRepositoryTest.shouldAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Review-server" />
       <extension name="coverage">
         <pattern>
@@ -91,14 +87,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ReviewJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldDelete" />
+      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldAdd" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest.shouldFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductJdbcTemplateRepositoryTest.shouldFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Review-server" />
       <extension name="coverage">
         <pattern>
@@ -107,14 +103,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ReviewJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldFindAll" />
+      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldFindById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest.shouldFindByProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductJdbcTemplateRepositoryTest.shouldFindByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Review-server" />
       <extension name="coverage">
         <pattern>
@@ -123,14 +119,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ReviewJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldFindByProduct" />
+      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldFindByName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest.shouldUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductJdbcTemplateRepositoryTest.shouldUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Review-server" />
       <extension name="coverage">
         <pattern>
@@ -139,7 +135,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ReviewJdbcTemplateRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
       <option name="METHOD_NAME" value="shouldUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -148,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest.shouldDelete" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest.shouldUpdate" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest.shouldCreate" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest.shouldFindByProduct" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest.shouldFindAll" />
+        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldUpdate" />
+        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldAdd" />
+        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldFindById" />
+        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldFindByName" />
+        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.findAll" />
       </list>
     </recent_temporary>
   </component>

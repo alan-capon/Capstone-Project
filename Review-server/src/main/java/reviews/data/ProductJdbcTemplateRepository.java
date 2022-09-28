@@ -32,7 +32,7 @@ public class ProductJdbcTemplateRepository implements ProductRepository {
         final String sql = """
                 select product_id, name, description
                 from product
-                where name = 'name';
+                where name = ?;
                 """;
 
         return jdbcTemplate.query(sql, new ProductMapper(), name).stream()
@@ -86,5 +86,6 @@ public class ProductJdbcTemplateRepository implements ProductRepository {
 
         return jdbcTemplate.update(sql, product.getName(), product.getDescription(), product.getId()) > 0;
     }
+
 
 }

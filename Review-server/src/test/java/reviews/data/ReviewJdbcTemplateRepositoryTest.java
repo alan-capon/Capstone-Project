@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReviewJdbcTemplateRepositoryTest {
 
     @Autowired
-    private ReviewJdbcTemplateRepository repository;
+    ReviewJdbcTemplateRepository repository;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    JdbcTemplate jdbcTemplate;
 
     static boolean hasSetup = false;
 
