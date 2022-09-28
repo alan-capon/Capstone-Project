@@ -89,11 +89,16 @@ class ProductServiceTest {
 
         assertFalse(result.isSuccess());
         assertNull(result.getPayload());
+
+        expected.setName(" ");
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
     }
 
     @Test
     void shouldNotAddProductWhenNameIsTooLong(){
 
+        
 
     }
 
