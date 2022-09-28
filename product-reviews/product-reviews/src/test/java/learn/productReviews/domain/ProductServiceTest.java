@@ -21,7 +21,16 @@ class ProductServiceTest {
     ProductRepository repository;
 
     @Test
-    void shouldAdd() {
+    void shouldAdd() throws DataAccessException {
+
+        Product expected = new Product(0, "New Product", "");
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Product> result = service.add(expected);
+
+        assertTrue(result.isSuccess());
+        assertNotNull(result.getPayload());
 
     }
 
