@@ -11,6 +11,7 @@ import reviews.models.Review;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/review")
 public class ReviewController {
 

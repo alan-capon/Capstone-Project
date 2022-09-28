@@ -15,6 +15,10 @@ public class ProductService {
         this.repository = productRepository;
     }
 
+    public List<Product> findAll() {
+        return repository.findAll();
+    }
+
     public Product findByName(String name){
 
         return repository.findByName(name);

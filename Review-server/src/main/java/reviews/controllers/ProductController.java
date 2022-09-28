@@ -7,17 +7,23 @@ import reviews.domain.ProductService;
 import reviews.domain.Result;
 import reviews.domain.ResultType;
 import reviews.models.Product;
-import reviews.models.Review;
+
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/product")
 public class ProductController {
     private final ProductService service;
 
     public ProductController(ProductService service) {
         this.service = service;
+    }
+
+    @GetMapping
+    public List<Product> findAll() {
+        return service.findAll();
     }
 
     @GetMapping("/{name}")
