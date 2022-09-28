@@ -68,8 +68,15 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldNotAddNullProduct(){
+    void shouldNotAddNullProduct() throws DataAccessException {
 
+        Product expected = null;
+
+        when(repository.add(expected)).thenReturn(null);
+        Result<Product> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
     }
 
     @Test
