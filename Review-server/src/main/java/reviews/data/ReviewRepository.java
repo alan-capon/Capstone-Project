@@ -9,6 +9,8 @@ public interface ReviewRepository {
     List<Review> findAll();
 
     List<Review> findByProduct(int productId);
+
+    List<Review> findByUser(int userId);
     Review add(Review review);
 
     boolean update(Review review);

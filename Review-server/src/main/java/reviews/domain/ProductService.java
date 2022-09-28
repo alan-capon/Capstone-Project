@@ -1,10 +1,11 @@
 package reviews.domain;
 
+import org.springframework.stereotype.Service;
 import reviews.data.ProductRepository;
 import reviews.models.Product;
 
 import java.util.List;
-
+@Service
 public class ProductService {
     private final ProductRepository repository;
     private static final int MAX_PRODUCT_NAME_LENGTH = 255;

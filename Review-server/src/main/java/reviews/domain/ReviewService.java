@@ -1,11 +1,12 @@
 package reviews.domain;
 
+import org.springframework.stereotype.Service;
 import reviews.data.ReviewRepository;
 import reviews.models.Product;
 import reviews.models.Review;
 
 import java.util.List;
-
+@Service
 public class ReviewService {
 
     private final ReviewRepository repository;

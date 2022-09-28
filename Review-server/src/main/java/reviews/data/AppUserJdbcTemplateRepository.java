@@ -3,6 +3,7 @@ package reviews.data;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import reviews.data.mappers.AppUserMapper;
 import reviews.models.AppUser;
@@ -11,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Collection;
 import java.util.List;
-
+@Repository
 public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     private final JdbcTemplate jdbcTemplate;

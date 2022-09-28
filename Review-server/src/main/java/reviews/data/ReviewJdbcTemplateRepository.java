@@ -3,6 +3,7 @@ package reviews.data;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 import reviews.data.mappers.ReviewMapper;
 import reviews.models.Review;
 
@@ -10,7 +11,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
-
+@Repository
 public class ReviewJdbcTemplateRepository implements ReviewRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -35,6 +36,15 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
                 where product_id = ?;
                 """;
         return jdbcTemplate.query(sql, new ReviewMapper(), productId);
+    }
+    @Override
+    public List<Review> findByUser(int userId) {
+        final String sql = """
+                select product_review_id, app_user_id, product_id, date, review
+                from product_reviews
+                where app_user_id = ?;
+                """;
+        return jdbcTemplate.query(sql, new ReviewMapper(), userId);
     }
 
     @Override
@@ -68,7 +78,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
         final String sql = """
                 update product_reviews set
                 review = ?
-                where product_review-id = ?;
+                where product_review_id = ?;
                 """;
 
         return jdbcTemplate.update(sql, review.getContent(), review.getId()) > 0;
@@ -76,6 +86,6 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
 
     @Override
     public boolean deleteById(int reviewId) {
-        return jdbcTemplate.update("delete from product_review where product_review_id = ?", reviewId) > 0;
+        return jdbcTemplate.update("delete from product_reviews where product_review_id = ?", reviewId) > 0;
     }
 }
