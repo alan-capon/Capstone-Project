@@ -1,11 +1,15 @@
 package learn.productReviews.domain;
 
+import learn.productReviews.data.DataAccessException;
+import learn.productReviews.data.ProductRepository;
+import learn.productReviews.models.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ProductServiceTest {
@@ -13,30 +17,34 @@ class ProductServiceTest {
     @Autowired
     ProductService service;
 
-//    @MockBean
-//    ProductRepository repository;
+    @MockBean
+    ProductRepository repository;
 
     @Test
-    void findAll() {
+    void shouldAdd() {
+
     }
 
     @Test
-    void findById() {
+    void shouldNotAddExistingProduct() {
     }
 
     @Test
-    void findByName() {
+    void shouldUpdate() {
     }
 
     @Test
-    void add() {
+    void shouldDeleteById() throws DataAccessException {
+
+        when(repository.deleteById(1)).thenReturn(true);
+
+        Result<Product> result = service.deleteById(1);
+
+        assertTrue(result.isSuccess());
     }
 
     @Test
-    void update() {
+    void shouldNotDeleteNonExistentProduct() {
     }
 
-    @Test
-    void deleteById() {
-    }
 }

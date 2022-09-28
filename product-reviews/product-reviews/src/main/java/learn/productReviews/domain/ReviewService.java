@@ -5,9 +5,11 @@ import learn.productReviews.data.ReviewRepository;
 import learn.productReviews.models.AppUser;
 import learn.productReviews.models.Product;
 import learn.productReviews.models.Review;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ReviewService {
 
     private final ReviewRepository repository;

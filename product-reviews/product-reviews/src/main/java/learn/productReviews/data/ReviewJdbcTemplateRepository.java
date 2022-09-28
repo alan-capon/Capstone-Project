@@ -5,7 +5,6 @@ import learn.productReviews.models.AppUser;
 import learn.productReviews.models.Product;
 import learn.productReviews.models.Review;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 

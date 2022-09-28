@@ -3,9 +3,11 @@ package learn.productReviews.domain;
 import learn.productReviews.data.DataAccessException;
 import learn.productReviews.data.ProductRepository;
 import learn.productReviews.models.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductService {
 
     private final ProductRepository repository;
@@ -73,12 +75,21 @@ public class ProductService {
         return result;
     }
 
-    private Result<Product> validate(Product product){
+    private Result<Product> validate(Product product) throws DataAccessException {
 
         Result<Product> result = new Result<>();
         if (product == null){
             result.addErrorMessage("Product cannot be null.", ResultType.INVALID);
             return result;
+        }
+
+        List<Product> products = repository.findAll();
+
+        for (Product p : products){
+            if (product.equals(p)){
+                result.addErrorMessage("Product already exists", ResultType.INVALID);
+                return result;
+            }
         }
 
         if (product.getName() == null || product.getName().isBlank()){
