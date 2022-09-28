@@ -44,7 +44,13 @@ class ProductServiceTest {
     }
 
     @Test
-    void shouldNotDeleteNonExistentProduct() {
+    void shouldNotDeleteNonExistentProduct() throws DataAccessException {
+
+        Result<Product> result = service.deleteById(1024);
+
+        assertFalse(result.isSuccess());
+        assertEquals(1, result.getErrorMessages().size());
+        assertTrue(result.getErrorMessages().get(0).contains("Product 1024 was not found"));
     }
 
 }
