@@ -106,7 +106,7 @@ public class ReviewService {
             result.addErrorMessage("Review content is required.", ResultType.INVALID);
         }
 
-        if (review.getContent().length() > MAX_CONTENT_LENGTH){
+        if ((review.getContent() != null) && (review.getContent().length() > MAX_CONTENT_LENGTH)){
             result.addErrorMessage("Review content must be less than %s characters",
                     ResultType.INVALID, MAX_CONTENT_LENGTH);
         }

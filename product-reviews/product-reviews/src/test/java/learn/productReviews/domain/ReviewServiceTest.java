@@ -37,6 +37,70 @@ class ReviewServiceTest {
     }
 
     @Test
+    void shouldNotAddNullReview() throws DataAccessException {
+
+        Review expected = null;
+
+        when(repository.add(expected)).thenReturn(null);
+
+        Result<Review> result = service.add(expected);
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
+    }
+
+    @Test
+    void shouldNotAddReviewWithNonExistentAppUserOrProduct() throws DataAccessException {
+
+        Review expected = new Review(0, 0, 1, null, "test");
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Review> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertTrue(result.getErrorMessages().get(0).contains("User ID is required."));
+
+        expected.setAppUserId(1);
+        expected.setProductId(0);
+        result = service.add(expected);
+        assertTrue(result.getErrorMessages().get(0).contains("Product ID is required."));
+
+    }
+
+    @Test
+    void shouldNotAddReviewWithNullDate() throws DataAccessException {
+
+        Review expected = new Review(0, 1, 1, null, "test");
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Review> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
+    }
+
+    @Test
+    void shouldNotAddReviewWithNullOrBlankContent() throws DataAccessException {
+
+        Review expected = new Review(0, 1, 1, LocalDate.now(), null);
+
+        when(repository.add(expected)).thenReturn(expected);
+
+        Result<Review> result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
+
+        expected.setContent(" ");
+        result = service.add(expected);
+
+        assertFalse(result.isSuccess());
+        assertNull(result.getPayload());
+
+    }
+
+    @Test
     void shouldUpdate() throws DataAccessException {
 
         Review expected = new Review(1, 1, 1, LocalDate.now(), "test");
@@ -66,17 +130,5 @@ class ReviewServiceTest {
         assertFalse(result.isSuccess());
         assertEquals(1, result.getErrorMessages().size());
         assertTrue(result.getErrorMessages().get(0).contains("Review 1024 was not found"));
-    }
-
-    @Test
-    void add() {
-    }
-
-    @Test
-    void update() {
-    }
-
-    @Test
-    void deleteById() {
     }
 }

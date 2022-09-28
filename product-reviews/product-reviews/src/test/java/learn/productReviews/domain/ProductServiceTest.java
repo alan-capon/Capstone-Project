@@ -101,6 +101,7 @@ class ProductServiceTest {
         assertNull(result.getPayload());
 
         expected.setName(" ");
+        result = service.add(expected);
         assertFalse(result.isSuccess());
         assertNull(result.getPayload());
     }
@@ -147,7 +148,7 @@ class ProductServiceTest {
 
         assertFalse(result.isSuccess());
         assertEquals(1, result.getErrorMessages().size());
-        assertTrue(result.getErrorMessages().get(0).contains("Product 1024 was not found"));
+        assertTrue(result.getErrorMessages().get(0).contains("Product 1024 was not found."));
     }
 
 }
