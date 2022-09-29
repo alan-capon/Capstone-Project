@@ -5,11 +5,15 @@ import './Home.css'
 function Home(){
     return(
         <>
-        <h2 className='realHome'>(Main Page)</h2>
+        {/* <h2 className='realHome'>(Main Page)</h2> */}
         <div className='Here'> Welcome to TrustedReview! </div>
-        <p></p>
-        <p></p>
-
+        <div className='forAll'>
+        <div className='container'>
+            <div className='ring'></div>
+            <div className='ring'></div>
+            <div className='ring'></div>
+        </div>
+        </div>
         </>
     )
 }
