@@ -46,7 +46,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
-
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -71,11 +70,13 @@ function Navbar() {
               <Link
                 className="navbar-brand align-middle"
                 style={{ top: "4px", position: "relative" }}
-                to="/"
-              >
-                Trusted Reviews
+                to="/">
+
+                Trusted Reviews                  
+               
+            <img src="logo4.png" className= "col-xl-4 col-lg-5" width="40px" height="40px"></img>
+                
               </Link>
-              <img src="logoAlt.png"></img>
             </div>
             <div className="col-xl-10 col-lg-9">
               <div className="row justify-content-center">

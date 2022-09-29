@@ -8,6 +8,7 @@ import TrustReviewList from './components/TrustReviewList';
 import TrustReviewForm from './components/TrustReviewForm';
 import NotFound from './components/NotFound';
 import TrustedReviewPage from './components/TrustedReviewPage';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           {/* <Route path="/trustedreviews" exact>
             <TrustedReviewList/>
           </Route> */}
+            <Route path="/trustedreviews/login" exact>
+              <SignIn/>
+            </Route>
           <Route>
             <NotFound/>
           </Route>         
