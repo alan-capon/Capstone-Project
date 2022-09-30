@@ -6,23 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0f7f8ba-1935-4073-b8c2-058ae8b26b17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/AppConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/AppConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/AppUserJdbcTemplateRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/AppUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/mappers/AppUserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/AppUserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/models/AppUser.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

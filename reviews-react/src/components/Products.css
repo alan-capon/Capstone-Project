@@ -1,0 +1,30 @@
+.Products {
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+
+    background-clip: text;
+    color: transparent;
+
+}
+
+
+.Title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5em;
+}
+
+.Description {
+    font-family: Haettenschweiler;
+    color: white;
+    font-size: 1.5em;
+}
+
+#Search {
+    margin-top: 20px;
+    padding-left: 65px;
+}
+    
