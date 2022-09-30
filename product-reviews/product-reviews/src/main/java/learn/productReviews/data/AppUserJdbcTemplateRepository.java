@@ -33,27 +33,28 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
                 .findFirst().orElse(null);
 
         if (user != null){
-            getFriends(user);
+            user.setFriends(getFriends(user.getAppUserId()));
         }
 
         return user;
     }
 
 
-    private void getFriends(AppUser user){
+    @Override
+    public List<AppUser> getFriends(int appUserId){
         String sql = """
                 select f.friend1_app_user_id, f.friend2_app_user_id, a.app_user_id, a.username, a.disable, a.password_hash
                 from app_user a
                 inner join friendships f on a.app_user_id = f.friend2_app_user_id
                 where f.friend1_app_user_id = 1;""";
 
-        List<AppUser> friends = jdbcTemplate.query(sql, new AppUserMapper(), user.getAppUserId());
+        List<AppUser> friends = jdbcTemplate.query(sql, new AppUserMapper(), appUserId);
 
         for (AppUser a : friends){
             a.setRoles(getRolesByUsername(a.getUsername()));
         }
 
-        user.setFriends(friends);
+        return friends;
     }
 
     @Override

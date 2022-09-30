@@ -39,6 +39,12 @@ public class AppUserService implements UserDetailsService {
         AppUser appUser = new AppUser(0, username, password, false, List.of("User"));
         return repository.create(appUser);
     }
+
+    public List<AppUser> getFriends(int appUserId){
+
+        return repository.getFriends(appUserId);
+    }
+
     private void validate(String username) {
         if (username == null || username.isBlank()) {
             throw new ValidationException("username is required");
@@ -48,6 +54,8 @@ public class AppUserService implements UserDetailsService {
             throw new ValidationException(errorMsg);
         }
     }
+
+
     private void validatePassword(String password) {
         if (password == null || password.length() < MIN_PASSWORD_LENGTH) {
             String errorMsg = String.format("password must be at least %S characters", MIN_PASSWORD_LENGTH);
