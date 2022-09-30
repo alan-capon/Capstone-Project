@@ -32,6 +32,10 @@ public class AppUser extends User {
         this.appUserId = appUserId;
     }
 
+    public void setRoles(List<String> roles){
+        this.roles = roles;
+    };
+
     public List<AppUser> getFriends() {return friends;}
 
     public void setFriends(List<AppUser> friends) {this.friends = friends;}

@@ -1,5 +1,6 @@
 package learn.productReviews.data;
 
+import learn.productReviews.App;
 import learn.productReviews.data.mappers.AppUserMapper;
 import learn.productReviews.models.AppUser;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,9 +27,33 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         final String sql = "select app_user_id, username, password_hash, disabled "
                 + "from app_user "
                 + "where username = ?;";
-        return jdbcTemplate.query(sql, new AppUserMapper(roles), username)
+
+        AppUser user = jdbcTemplate.query(sql, new AppUserMapper(roles), username)
                 .stream()
                 .findFirst().orElse(null);
+
+        if (user != null){
+            getFriends(user);
+        }
+
+        return user;
+    }
+
+
+    private void getFriends(AppUser user){
+        String sql = """
+                select f.friend1_app_user_id, f.friend2_app_user_id, a.app_user_id, a.username, a.disable, a.password_hash
+                from app_user a
+                inner join friendships f on a.app_user_id = f.friend2_app_user_id
+                where f.friend1_app_user_id = 1;""";
+
+        List<AppUser> friends = jdbcTemplate.query(sql, new AppUserMapper(), user.getAppUserId());
+
+        for (AppUser a : friends){
+            a.setRoles(getRolesByUsername(a.getUsername()));
+        }
+
+        user.setFriends(friends);
     }
 
     @Override
