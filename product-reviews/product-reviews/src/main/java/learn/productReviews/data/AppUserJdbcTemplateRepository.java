@@ -24,6 +24,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Transactional
     public AppUser findByUsername(String username) {
         List<String> roles = getRolesByUsername(username);
+
         final String sql = "select app_user_id, username, password_hash, disabled "
                 + "from app_user "
                 + "where username = ?;";
@@ -40,9 +41,11 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     }
 
 
+
     @Override
     public List<AppUser> getFriends(int appUserId){
-        String sql = """
+
+        final String sql = """
                 select f.friend1_app_user_id, f.friend2_app_user_id, a.app_user_id, a.username, a.disable, a.password_hash
                 from app_user a
                 inner join friendships f on a.app_user_id = f.friend2_app_user_id
@@ -58,8 +61,17 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     }
 
     @Override
+    public AppUser addFriend(AppUser friend) {
+
+        final String sql = """
+                """;
+        return null;
+    }
+
+    @Override
     @Transactional
     public AppUser create(AppUser user) {
+
         final String sql = "insert into app_user (username, password_hash) values (?, ?);";
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
@@ -78,6 +90,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     @Transactional
     public void update(AppUser user) {
+
         final String sql = "update app_user set "
                 + "username = ?, "
                 + "disabled = ? "
@@ -87,6 +100,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         updateRoles(user);
     }
     private void updateRoles(AppUser user) {
+
         // delete all roles, then re-add
         jdbcTemplate.update("delete from app_user_role where app_user_id = ?;", user.getAppUserId());
         Collection<GrantedAuthority> authorities = user.getAuthorities();
@@ -100,6 +114,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         }
     }
     private List<String> getRolesByUsername(String username) {
+
         final String sql = "select r.name "
                 + "from app_user_role ur "
                 + "inner join app_role r on ur.app_role_id = r.app_role_id "

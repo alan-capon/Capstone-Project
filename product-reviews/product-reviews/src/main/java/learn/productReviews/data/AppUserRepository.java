@@ -13,6 +13,9 @@ public interface AppUserRepository {
     List<AppUser> getFriends(int appUserId);
 
     @Transactional
+    AppUser addFriend(AppUser friend);
+
+    @Transactional
     AppUser create(AppUser user);
 
     @Transactional
