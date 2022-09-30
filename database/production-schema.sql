@@ -27,6 +27,19 @@ create table app_user_role (
         references app_role(app_role_id)
 );
 
+create table friendships (
+	friend1_app_user_id int not null,
+    friend2_app_user_id int not null,
+    constraint pk_friends
+		primary key (friend1_app_user_id, friend2_app_user_id),
+	constraint fk_friends_friend1_app_user_id
+		foreign key (friend1_app_user_id)
+        references app_user(app_user_id),
+	constraint fk_friends_friend2_app_user_id
+		foreign key (friend2_app_user_id)
+        references app_user(app_user_id)
+);
+
 create table product (
 	product_id int primary key auto_increment,
     `name` varchar(255) not null,

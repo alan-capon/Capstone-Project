@@ -1,0 +1,23 @@
+@base_url = http://localhost:8080/api/review
+@token
+
+GET {{base_url}} HTTP/1.1
+
+###
+
+GET {{base_url}}/1 HTTP/1.1
+
+### Add happy path
+
+POST {{base_url}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "appUserId": 1
+    "productId": 1
+    "date": "2022-09-29T19:04:14.023Z"
+    "content": "I was pleasantly surprised by the effectiveness of this product.
+    it exceeded all of my expectations."
+}
+
