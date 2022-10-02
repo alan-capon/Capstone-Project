@@ -61,11 +61,24 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     }
 
     @Override
-    public AppUser addFriend(AppUser friend) {
+    public AppUser addFriend(AppUser currentUser, AppUser friend) {
 
         final String sql = """
+                insert into friendship (friend1_app_user_id, friend2_app_user_id)
+                values
+                (?, ?)
                 """;
-        return null;
+
+        int rowsAffected = jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, currentUser.getAppUserId());
+            ps.setInt(1, friend.getAppUserId());
+            return ps;
+        });
+        if (rowsAffected <= 0) {
+            return null;
+        }
+        return friend;
     }
 
     @Override

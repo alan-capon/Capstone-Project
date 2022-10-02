@@ -13,7 +13,7 @@ public interface AppUserRepository {
     List<AppUser> getFriends(int appUserId);
 
     @Transactional
-    AppUser addFriend(AppUser friend);
+    AppUser addFriend(AppUser currentUser, AppUser friend);
 
     @Transactional
     AppUser create(AppUser user);
