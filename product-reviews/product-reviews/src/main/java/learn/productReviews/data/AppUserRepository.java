@@ -10,6 +10,9 @@ public interface AppUserRepository {
     AppUser findByUsername(String username);
 
     @Transactional
+    AppUser findById(int id);
+
+    @Transactional
     List<AppUser> getFriends(int appUserId);
 
     @Transactional

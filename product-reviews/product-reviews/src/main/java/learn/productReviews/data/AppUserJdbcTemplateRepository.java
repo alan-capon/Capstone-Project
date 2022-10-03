@@ -1,6 +1,5 @@
 package learn.productReviews.data;
 
-import learn.productReviews.App;
 import learn.productReviews.data.mappers.AppUserMapper;
 import learn.productReviews.models.AppUser;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,6 +34,26 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
         if (user != null){
             user.setFriends(getFriends(user.getAppUserId()));
+        }
+
+        return user;
+    }
+
+    @Override
+    @Transactional
+    public AppUser findById(int id) {
+        List<String> roles = getRolesById(id);
+
+        final String sql = "select app_user_id, username, password_hash, disabled "
+                + "from app_user "
+                + "where app_user_id = ?;";
+
+        AppUser user = jdbcTemplate.query(sql, new AppUserMapper(roles), id)
+                .stream()
+                .findFirst().orElse(null);
+
+        if (user != null){
+            user.setFriends(getFriends(id));
         }
 
         return user;
@@ -78,6 +97,8 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         if (rowsAffected <= 0) {
             return null;
         }
+
+        currentUser.setFriends(getFriends(currentUser.getAppUserId()));
         return friend;
     }
 
@@ -134,5 +155,15 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
                 + "inner join app_user au on ur.app_user_id = au.app_user_id "
                 + "where au.username = ?";
         return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), username);
+    }
+
+    private List<String> getRolesById(int id) {
+
+        final String sql = "select r.name "
+                + "from app_user_role ur "
+                + "inner join app_role r on ur.app_role_id = r.app_role_id "
+                + "inner join app_user au on ur.app_user_id = au.app_user_id "
+                + "where au.app_user_id = ?";
+        return jdbcTemplate.query(sql, (rs, rowId) -> rs.getString("name"), id);
     }
 }

@@ -32,6 +32,15 @@ public class AppUserService implements UserDetailsService {
         }
         return appUser;
     }
+
+    public AppUser findById(int id) throws UsernameNotFoundException {
+        AppUser appUser = repository.findById(id);
+        if (appUser == null || !appUser.isEnabled()) {
+            throw new UsernameNotFoundException(id + " not found");
+        }
+        return appUser;
+    }
+
     public AppUser create(String username, String password) {
         validate(username);
         validatePassword(password);
