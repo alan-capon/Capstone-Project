@@ -121,7 +121,7 @@ margin: -30px;
 border-radius: 50%;
 /**/
 border: 4px solid transparent;
-border-top: 4px solid #24ecff;
+border-top: 4px solid #242fff;
 animation: animate 5s linear infinite;
 }
 
@@ -143,19 +143,20 @@ animation: animate 5s linear infinite;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #24ecff;
-    box-shadow: 0 0 0 5px #24ecff33,
-    0 0 0 10px #24ecff22,
-    0 0 0 20px #24ecff11,
-    0 0 20px #24ecff,
-    0 0 50px #24ecff;
-    }
+    background: #242fff;
+    box-shadow: 0 0 0 5px #242fff33,
+    0 0 0 10px #242fff22,
+    0 0 0 20px #242fff11,
+    0 0 20px #242fff,
+    0 0 50px #242fff;
+/* 24ecff, 24ecff33, then 22, 11... then 24ecff*/
+}
 
 .container .ring:nth-child(2) {
     animation: animate2 4s linear infinite;
-    animation-delay: -1s;
+    animation-delay: -1.5s;
     border-top: 4px solid transparent;
-    border-left: 4px solid #93ff2d;
+    border-left: 4px solid #ffea2d;
 }
 
 .container .ring:nth-child(2)::before {
@@ -170,12 +171,13 @@ animation: animate 5s linear infinite;
     height: 15px;
     border-radius: 50%;
     
-    background: #93ff2d;
+    background: #ffea2d;
     box-shadow: 0 0 0 5px #93ff2d33,
-    0 0 0 10px #93ff2d33,
-    0 0 0 20px #93ff2d33,
-    0 0 20px #93ff2d,
-    0 0 50px #93ff2d;
+    0 0 0 10px #ffff2d22,
+    0 0 0 20px #ffff2d11,
+    0 0 20px #ffea2d,
+    0 0 50px #ffea2d;
+    transition: 3s;
     }
 
 
@@ -198,7 +200,8 @@ animation: animate 5s linear infinite;
     animation-delay: -3s;
     top: -66.66px;
     border-top: 4px solid transparent;
-    border-left: 4px solid #e41cf8;
+    border-left: 4px solid #f81c1c;
+    
 
 }
 
@@ -211,12 +214,13 @@ animation: animate 5s linear infinite;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #e41cf8;
+    background: #f81c1c;
     box-shadow: 0 0 0 5px #e41cf833,
-    0 0 0 10px #e41cf822,
+    0 0 0 10px #f81c1c22,
     0 0 0 20px #e41cf811,
-    0 0 20px #e41cf8,
-    0 0 50px #e41cf8;
+    0 0 20px #f81c1c,
+    0 0 50px #f81c1c;
+
     /* animation-iteration-count:initial; */
     }
 
