@@ -12,8 +12,7 @@ import reviews.models.Product;
 import java.util.List;
 
 @RestController
-@CrossOrigin
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 public class ProductController {
     private final ProductService service;
 

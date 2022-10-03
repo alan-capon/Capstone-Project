@@ -73,7 +73,7 @@ function Navbar() {
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
                 }
-                to="/trustedreviews/login"
+                to="/login"
               >
                 Sign-In
               </NavLink>

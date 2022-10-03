@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a0f7f8ba-1935-4073-b8c2-058ae8b26b17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
