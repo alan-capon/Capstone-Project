@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/Home';
@@ -9,6 +8,8 @@ import TrustReviewForm from './components/TrustReviewForm';
 import NotFound from './components/NotFound';
 import TrustedReviewPage from './components/TrustedReviewPage';
 import SignIn from './components/SignIn';
+import Products from './components/Products'
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -19,9 +20,15 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Home/>
+          </Route>
+          <Route path="/register" exact>
+            <SignUp/>
           </Route>          
           <Route path="/about" exact>
             <About/>
+          </Route>
+          <Route path="/products" exact>
+            <Products/>
           </Route>
           <Route path="/trustedreviews" exact>
             <TrustedReviewPage/>
@@ -32,7 +39,7 @@ function App() {
           {/* <Route path="/trustedreviews" exact>
             <TrustedReviewList/>
           </Route> */}
-            <Route path="/trustedreviews/login" exact>
+            <Route path="/login" exact>
               <SignIn/>
             </Route>
           <Route>

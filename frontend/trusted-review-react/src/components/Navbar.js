@@ -1,48 +1,3 @@
-// import { Link } from "react-router-dom";
-// import "./Navbar.css";
-
-// // // Actual buttons here (top of screen)
-
-// function Navbar() {
-//   return (
-//     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-//       <div className="container-fluid">
-//         <h1 className="navbar-brand">Trusted Reviews</h1>
-//         <button
-//           class="navbar-toggler"
-//           type="button"
-//           data-bs-toggle="collapse"
-//           data-bs-target="#navbarNav"
-//           aria-controls="navbarNav"
-//           aria-expanded="false"
-//           aria-label="Toggle navigation"
-//         >
-//           <span class="navbar-toggler-icon"></span>
-//         </button>
-//         <div className="navbar-nav me-auto mb-2 mb-lg-0 justify-content">
-//           <Link className="nav-link" to="/">
-//             Home
-//           </Link>
-//           <Link className="nav-link" to="/about">
-//             About
-//           </Link>
-//           <Link className="nav-link" to="/trustedreviews">
-//             Trusted Reviews
-//           </Link>
-
-//           <Link className="nav-link me-auto" to="/trustedreviews/login">
-//             Sign-In
-//           </Link>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-
-
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
@@ -74,13 +29,13 @@ function Navbar() {
 
                 Trusted Reviews                  
                
-            <img src="logo4.png" className= "col-xl-4 col-lg-5" width="40px" height="40px"></img>
+            <img src="logo4.png" className= "d-inline-block align-text-top ms-2" width="40px" height="40px"></img>
                 
               </Link>
             </div>
             <div className="col-xl-10 col-lg-9">
               <div className="row justify-content-center">
-                <div className="col-1 nav-item">
+                <div className="col-lg-1 nav-item">
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? "nav-link active" : "nav-link"
@@ -91,7 +46,7 @@ function Navbar() {
                     Home
                   </NavLink>
                 </div>
-                <div className="col-1 nav-item">
+                <div className="col-lg-1 nav-item">
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? "nav-link active" : "nav-link"
@@ -113,12 +68,12 @@ function Navbar() {
                 </div>
               </div>
             </div>
-            <div className="col-1 text-end nav-item">
+            <div className="col-lg-1 nav-item">
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
                 }
-                to="/trustedreviews/login"
+                to="/login"
               >
                 Sign-In
               </NavLink>
