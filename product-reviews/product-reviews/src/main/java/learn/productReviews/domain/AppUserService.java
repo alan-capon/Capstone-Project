@@ -45,6 +45,22 @@ public class AppUserService implements UserDetailsService {
         return repository.getFriends(appUserId);
     }
 
+    public Result<AppUser> addFriend(AppUser currentUser, AppUser friend){
+
+        Result<AppUser> result = new Result<>();
+
+        if (currentUser != null && friend != null){
+            if (!currentUser.getFriends().contains(friend)){
+                result.setPayload(repository.addFriend(currentUser, friend));
+            }
+        }
+
+        else {
+            result.addErrorMessage("Users cannot be null", ResultType.INVALID);
+        }
+        return result;
+    }
+
     private void validate(String username) {
         if (username == null || username.isBlank()) {
             throw new ValidationException("username is required");
