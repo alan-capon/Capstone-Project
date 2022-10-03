@@ -177,7 +177,6 @@ animation: animate 5s linear infinite;
     0 0 0 20px #ffff2d11,
     0 0 20px #ffea2d,
     0 0 50px #ffea2d;
-    transition: 3s;
     }
 
 
@@ -202,6 +201,7 @@ animation: animate 5s linear infinite;
     border-top: 4px solid transparent;
     border-left: 4px solid #f81c1c;
     
+    
 
 }
 
@@ -220,7 +220,7 @@ animation: animate 5s linear infinite;
     0 0 0 20px #e41cf811,
     0 0 20px #f81c1c,
     0 0 50px #f81c1c;
-
+    
     /* animation-iteration-count:initial; */
     }
 
@@ -232,11 +232,14 @@ animation: animate 5s linear infinite;
     font-family: consolas;
     bottom: -80px;
     letter-spacing: 0.15em;
+    
 }
 
 .container .ring:nth-child(3):hover {
-    animation: animate3Faster 2s linear infinite;
+    animation: animate3Faster 1s linear infinite;
+    
 }
+
 
 
 @keyframes animate3Faster {
