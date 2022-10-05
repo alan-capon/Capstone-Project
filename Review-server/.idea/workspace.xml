@@ -6,10 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="a0f7f8ba-1935-4073-b8c2-058ae8b26b17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/AppUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/AppUserJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/AppUserJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/mappers/AppUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/mappers/AppUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/mappers/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/mappers/ReviewMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/models/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/models/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/models/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/AppUserJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/AppUserJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/ReviewJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/ReviewJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/mappers/AppUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/mappers/AppUserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/mappers/ReviewMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/mappers/ReviewMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/AppUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/ReviewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/models/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/models/AppUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reviews/models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/models/Review.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,5 +188,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/reviews/controllers/AuthController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

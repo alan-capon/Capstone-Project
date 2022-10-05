@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from 'react';
 import "./Navbar.css";
+import AuthContext from '../AuthContext';
 
 function Navbar() {
+
+  const auth = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
       <div className="container-fluid">
@@ -61,14 +66,17 @@ function Navbar() {
                     className={({ isActive }) =>
                       isActive ? "nav-link active" : "nav-link"
                     }
-                    to="/trustedreviews"
+                    to="/products"
                   >
                     Trusted Reviews
                   </NavLink>
                 </div>
               </div>
             </div>
-            <div className="col-1 text-end nav-item">
+
+            {!auth.user && (
+              <>
+                <div className="col-1 text-end nav-item">
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
@@ -78,6 +86,24 @@ function Navbar() {
                 Sign-In
               </NavLink>
             </div>
+              </>
+            )}
+
+            {auth.user && (
+              <>
+              <div className="col-1 text-end nav-item">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  onClick={auth.logout} to="/"
+                >
+                  Logout
+                </NavLink>
+              </div>
+              </>             
+            )}
+              
           </div>
         </div>
       </div>

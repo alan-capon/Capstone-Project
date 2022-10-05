@@ -29,13 +29,26 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
         return jdbcTemplate.query(sql, new ReviewMapper());
     }
     @Override
-    public List<Review> findByProduct(int productId) {
-        final  String sql = """
-                select product_review_id, app_user_id, product_id, date, review
-                from product_reviews
-                where product_id = ?;
+    public List<Review> findByProduct(int id) {
+        final String sql = """
+                select p.product_review_id, p.date, p.review, p.product_id,
+                a.app_user_id, a.username, a.first_name, a.last_name
+                from app_user a
+                inner join product_reviews p on a.app_user_id = p.app_user_id
+                where p.product_id = ?;
                 """;
-        return jdbcTemplate.query(sql, new ReviewMapper(), productId);
+//        final  String sql = """
+//                select product_review_id, app_user_id, product_id, date, review
+//                from product_reviews
+//                where product_id = ?;
+//                """;
+//        List<Review> reviews = jdbcTemplate.query(sql, new ReviewMapper(), id);
+//
+//        if(!reviews.isEmpty()) {
+//            addUsers(reviews, id);
+//        }
+
+        return jdbcTemplate.query(sql, new ReviewMapper(), id);
     }
     @Override
     public List<Review> findByUser(int userId) {
@@ -88,4 +101,5 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
     public boolean deleteById(int reviewId) {
         return jdbcTemplate.update("delete from product_reviews where product_review_id = ?", reviewId) > 0;
     }
+
 }

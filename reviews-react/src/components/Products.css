@@ -8,7 +8,16 @@
 
     background-clip: text;
     color: transparent;
+}
 
+.add {
+    background-color: white;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    background-clip: text;
+    color: transparent;
 }
 
 
@@ -55,4 +64,8 @@
 .card-body a:hover {
     color: #63a6b0;
     text-decoration: none;
+}
+
+.addReview {
+    padding-left: 30px;
 }

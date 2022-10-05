@@ -11,7 +11,7 @@ import reviews.models.Review;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/review")
+@RequestMapping("/api/reviews")
 public class ReviewController {
 
     private final ReviewService service;
@@ -26,8 +26,13 @@ public class ReviewController {
     }
 
     @GetMapping("/{id}")
-    public List<Review> findByProduct(@PathVariable int productId){
-        return service.findByProduct(productId);
+    public ResponseEntity<List<Review>> findByProduct(@PathVariable int id){
+        List<Review> reviews = service.findByProduct(id);
+
+        if (reviews.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 
     @PostMapping

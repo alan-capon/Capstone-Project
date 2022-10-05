@@ -30,11 +30,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // the order of the antMatchers() method calls is important
         // as they're evaluated in the order that they're added
         http.authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/authenticate", "/api/user").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/api/products", "/api/products/*").permitAll()
+                        "/api/products", "/api/products/*", "/api/reviews", "/api/reviews/*").permitAll()
                 .antMatchers(HttpMethod.POST,
-                        "/api/solarpanel").hasAnyRole("USER", "ADMIN")
+                        "/api/products").hasRole("User")
                 .antMatchers(HttpMethod.PUT,
                         "/api/solarpanel/*").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE,

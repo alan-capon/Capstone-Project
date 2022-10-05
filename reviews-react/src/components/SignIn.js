@@ -1,5 +1,6 @@
 import "./SignIn.css";
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import AuthContext from '../AuthContext';
 
 function SignIn() {
@@ -17,7 +18,7 @@ function SignIn() {
         const authAttempt = {
             username,
             password
-        }
+        };
 
         const init = {
             method: 'POST',
@@ -25,7 +26,7 @@ function SignIn() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(authAttempt)
-        }
+        };
 
         fetch('http://localhost:8080/api/authenticate', init)
             .then(response => {

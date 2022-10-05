@@ -67,8 +67,8 @@ public class ProductService {
 //    }
 
     private Result<Product> validate(Product product){
-
         Result<Product> result = new Result<>();
+
         if (product == null){
             result.addErrorMessage("Product cannot be null.", ResultType.INVALID);
             return result;

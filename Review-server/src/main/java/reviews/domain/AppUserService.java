@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import reviews.App;
 import reviews.data.AppUserRepository;
 import reviews.models.AppUser;
 
@@ -32,21 +33,59 @@ public class AppUserService implements UserDetailsService {
         }
         return appUser;
     }
-    public AppUser create(String username, String password) {
-        validate(username);
-        validatePassword(password);
-        password = encoder.encode(password);
-        AppUser appUser = new AppUser(0, username, password, false, List.of("User"));
-        return repository.create(appUser);
+
+    public Result<AppUser> create(AppUser appUser) {
+        Result<AppUser> result = validate(appUser);
+
+        if(!result.isSuccess()) {
+            return result;
+        }
+
+        if (appUser.getAppUserId() != 0) {
+            result.addErrorMessage("Id cannot be set", ResultType.INVALID);
+            return result;
+        }
+//        validate(appUser.getUsername());
+//        validatePassword(appUser.getPassword());
+
+        String password = encoder.encode(appUser.getPassword());
+        AppUser newUser = new AppUser(0, appUser.getUsername(), appUser.getFirstName(),
+                appUser.getLastName(), appUser.getEmail(), password, false, List.of("User"));
+
+
+        appUser = repository.create(newUser);
+        result.setPayload(appUser);
+        return result;
     }
-    private void validate(String username) {
-        if (username == null || username.isBlank()) {
-            throw new ValidationException("username is required");
+    private Result<AppUser> validate(AppUser appUser) {
+        Result<AppUser> result = new Result<>();
+
+        if (appUser == null) {
+            result.addErrorMessage("User required", ResultType.INVALID);
+            return result;
         }
-        if (username.length() > MAX_USERNAME_LENGTH) {
-            String errorMsg = String.format("username must be less than %s characters", MAX_USERNAME_LENGTH);
-            throw new ValidationException(errorMsg);
+
+        if (appUser.getUsername() == null || appUser.getUsername().isBlank()) {
+            result.addErrorMessage("Username required", ResultType.INVALID);
         }
+        if (appUser.getUsername().length() > MAX_USERNAME_LENGTH) {
+            String errorMsg = String.format("Username must be less than %s characters", MAX_USERNAME_LENGTH);
+            result.addErrorMessage(errorMsg, ResultType.INVALID);
+        }
+
+        if (appUser.getFirstName() == null || appUser.getFirstName().isBlank()) {
+            result.addErrorMessage("First name required", ResultType.INVALID);
+        }
+
+        if (appUser.getLastName() == null || appUser.getLastName().isBlank()) {
+            result.addErrorMessage("Last name required", ResultType.INVALID);
+        }
+
+        if (appUser.getEmail() == null || appUser.getEmail().isBlank()) {
+            result.addErrorMessage("Email required", ResultType.INVALID);
+        }
+
+        return result;
     }
     private void validatePassword(String password) {
         if (password == null || password.length() < MIN_PASSWORD_LENGTH) {

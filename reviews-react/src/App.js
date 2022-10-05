@@ -10,12 +10,45 @@ import TrustedReviewPage from './components/TrustedReviewPage';
 import SignIn from './components/SignIn';
 import Products from './components/Products'
 import SignUp from './components/SignUp';
+import AuthContext from "./AuthContext";
+import { useState } from 'react';
+import jwt_decode from "jwt-decode";
+import ProductsForm from "./components/ProductsForm";
 
 function App() {
+  const[user, setUser] = useState(null);
+
+  const login = (token) => {
+    const decodedToken = jwt_decode(token);
+
+    const roles = decodedToken.authorities.split(",");
+
+    const userToLogin = {
+      username: decodedToken.sub,
+      roles,
+      token,
+      hasRole(role){
+        return this.roles.includes(role);
+      }
+    }
+    setUser(userToLogin);
+  }
+
+  const logout = () => {
+    setUser(null);
+  }
+
+  const auth = {
+    user,
+    login,
+    logout
+  }
+
   return (
     <>
+      <AuthContext.Provider value={auth}>
       <Router>
-        {/*Unesscary title now -> <h1>Trusted Reviews</h1> */}
+
         <Navbar/>
         <Switch>
           <Route path="/" exact>
@@ -30,15 +63,18 @@ function App() {
           <Route path="/products" exact>
             <Products/>
           </Route>
+          <Route path="/products/add" exact>
+              <ProductsForm />
+          </Route>
           <Route path="/trustedreviews" exact>
             <TrustedReviewPage/>
           </Route>          
-          {/* <Route path={["/trustedreviews/add","/trustedreviews/edit/:id"]}>
-            <TrustedReviewForm/>
-          </Route> */}
-          {/* <Route path="/trustedreviews" exact>
-            <TrustedReviewList/>
-          </Route> */}
+          <Route path={["/review/add/:id"]}>
+            <TrustReviewForm/>
+          </Route>
+          <Route path={["/product/reviews/:id"]} exact>
+            <TrustReviewList/>
+          </Route>
             <Route path="/login" exact>
               <SignIn/>
             </Route>
@@ -46,7 +82,8 @@ function App() {
             <NotFound/>
           </Route>         
         </Switch>       
-      </Router>      
+      </Router>
+      </AuthContext.Provider>      
     </>
   );
 }

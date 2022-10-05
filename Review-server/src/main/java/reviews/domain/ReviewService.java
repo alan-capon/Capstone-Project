@@ -20,8 +20,8 @@ public class ReviewService {
         return repository.findAll();
     }
 
-    public List<Review> findByProduct(int productId){
-        return repository.findByProduct(productId);
+    public List<Review> findByProduct(int id){
+        return repository.findByProduct(id);
     }
 
     public Result<Review> add(Review review){
