@@ -21,6 +21,8 @@ function Home(){
             <div className='ring1'></div>
             <div className='ring2'></div>
             <div className='ring3'></div>
+            <div className='ring4'></div>
+            <div className='ring5'></div>
 
             {/* <div className='ring'></div>
             <div className='ring'></div>

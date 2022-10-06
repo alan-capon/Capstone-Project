@@ -1,8 +1,10 @@
+import './TrustedReviewPage.css'
+
 function TrustedReviewPage(){
     return(
         <>
-        <h2 className="openerAbout">Program</h2>
-        <p className="theMainAbout">
+        <h2 className="openerTrust">Program</h2>
+        <p className="theMainTrust">
         Welcome to TrustedReview! This is a testing test.
         </p>
         </>

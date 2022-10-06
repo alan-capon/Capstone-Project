@@ -1,4 +1,4 @@
-.openerAbout {
+.openerTrust {
     
     margin-top: 50px;
     margin-bottom: 10px;
@@ -23,14 +23,7 @@
 }
 
 
-@keyframes open-animation {
-    0% {background-position: left}
-    50% {background-position: right}
-    100% {background-position: left}
-    
-    }
-
-.theMainAbout {
+.theMainTrust {
         color: white;
         background: black;
         text-align: center;
