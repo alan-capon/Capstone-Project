@@ -1,6 +1,6 @@
-drop database if exists product_reviews;
-create database product_reviews;
-use product_reviews;
+drop database if exists test_product_reviews;
+create database test_product_reviews;
+use test_product_reviews;
 
 create table app_user (
 	app_user_id int primary key auto_increment,
@@ -59,3 +59,12 @@ create table product_reviews (
 		foreign key (product_id)
         references product(product_id)
 );
+
+insert into app_user (username, password_hash, `disable`)
+	values
+    ('john@smith.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 0),
+    ('sally@jones.com', '$2a$10$ntB7CsRKQzuLoKY3rfoAQen5nNyiC/U60wBsWnnYrtQQi8Z3IZzQa', 0);
+    
+insert into friendships (friend1_app_user_id, friend2_app_user_id)
+	values
+    (1, 2);
