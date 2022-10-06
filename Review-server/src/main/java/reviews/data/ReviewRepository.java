@@ -8,6 +8,8 @@ public interface ReviewRepository {
 
     List<Review> findAll();
 
+    Review findById(int id);
+
     List<Review> findByProduct(int productId);
 
     List<Review> findByUser(int userId);

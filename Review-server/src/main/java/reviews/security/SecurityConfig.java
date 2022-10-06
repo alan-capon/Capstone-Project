@@ -32,13 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/authenticate", "/api/user").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/api/products", "/api/products/*", "/api/reviews", "/api/reviews/*").permitAll()
+                        "/api/products", "/api/products/*", "/api/reviews", "/api/reviews/*",
+                        "/api/reviews/product/*", "/api/user/*").permitAll()
                 .antMatchers(HttpMethod.POST,
-                        "/api/products").hasRole("User")
+                        "/api/products", "/api/reviews").hasRole("User")
                 .antMatchers(HttpMethod.PUT,
-                        "/api/solarpanel/*").hasAnyRole("USER", "ADMIN")
+                        "/api/reviews/*").hasRole("User")
                 .antMatchers(HttpMethod.DELETE,
-                        "/api/solarpanel/*").hasAnyRole("ADMIN")
+                        "/api/reviews/*").hasAnyRole("User")
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()

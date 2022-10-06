@@ -63,4 +63,20 @@ img {
 
 li {
     color: white;
+}  
+
+.links {
+    margin-top: 20px;
+    font-size: 20px;
+    
 }
+
+.edit {
+    color: #151E3F
+}
+
+.delete {
+    padding-left: 25px;
+    color: #151E3F;
+}
+

@@ -6,7 +6,6 @@ import About from './components/About';
 import TrustReviewList from './components/TrustReviewList';
 import TrustReviewForm from './components/TrustReviewForm';
 import NotFound from './components/NotFound';
-import TrustedReviewPage from './components/TrustedReviewPage';
 import SignIn from './components/SignIn';
 import Products from './components/Products'
 import SignUp from './components/SignUp';
@@ -14,6 +13,7 @@ import AuthContext from "./AuthContext";
 import { useState } from 'react';
 import jwt_decode from "jwt-decode";
 import ProductsForm from "./components/ProductsForm";
+import EditForm from "./components/EditForm";
 
 function App() {
   const[user, setUser] = useState(null);
@@ -44,6 +44,7 @@ function App() {
     logout
   }
 
+
   return (
     <>
       <AuthContext.Provider value={auth}>
@@ -66,14 +67,17 @@ function App() {
           <Route path="/products/add" exact>
               <ProductsForm />
           </Route>
-          <Route path="/trustedreviews" exact>
+          {/* <Route path="/trustedreviews" exact>
             <TrustedReviewPage/>
-          </Route>          
+          </Route>           */}
           <Route path={["/review/add/:id"]}>
             <TrustReviewForm/>
           </Route>
           <Route path={["/product/reviews/:id"]} exact>
             <TrustReviewList/>
+          </Route>
+          <Route path={["/review/edit/:id"]} exact>
+            <EditForm />
           </Route>
             <Route path="/login" exact>
               <SignIn/>

@@ -5,6 +5,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import reviews.data.mappers.ReviewMapper;
+import reviews.data.mappers.ReviewOnlyMapper;
 import reviews.models.Review;
 
 import java.sql.Date;
@@ -28,6 +29,19 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
 
         return jdbcTemplate.query(sql, new ReviewMapper());
     }
+
+    @Override
+    public Review findById(int id) {
+        final  String sql = """
+                select product_review_id, app_user_id, product_id, date, review
+                from product_reviews
+                where product_review_id = ?;
+                """;
+
+        return jdbcTemplate.query(sql, new ReviewOnlyMapper(), id).stream().findFirst().orElse(null);
+    }
+
+
     @Override
     public List<Review> findByProduct(int id) {
         final String sql = """

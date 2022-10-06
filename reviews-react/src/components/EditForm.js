@@ -1,28 +1,16 @@
-import { useState, useContext, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import AuthContext from "../AuthContext";
 
 
-function TrustReviewForm() {
-
-    const auth = useContext(AuthContext);
-
-    const [user, setUser] = useState([]);
 
 
-
+function EditForm() {
     const { id } = useParams();
+    const auth = useContext(AuthContext);
+    
 
-    useEffect(() => {
-        fetch(`http://localhost:8080/api/user/${auth.user.username}`)
-            .then(response => response.json())
-            .then(data => {
-                setUser(data);
-            })
-            .catch(console.log)
-    }, [])
-
-
+    
 
     const REVIEW_DEFAULT = {
         appUserId: 0,
@@ -31,19 +19,41 @@ function TrustReviewForm() {
         date: ""
     }
 
-
-
-
     const history = useHistory();
 
     const [review, setReview] = useState(REVIEW_DEFAULT);
-    
+
+    useEffect(() => {
+        if(id) {
+            fetch(`http://localhost:8080/api/reviews/product/${id}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        return Promise.reject(`Unexpected status code: ${response.status}`)
+                    }
+                })
+                .then(data => setReview(data))
+                .catch(console.log)                
+        }
+    }, [id])
+
+
+    const handleChange = (event) => {
+        const newReview = {...review}
+
+        newReview[event.target.name] = event.target.value;
+
+        setReview(newReview);
+    }
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const init = {
-            method: "POST",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${auth.user.token}`
@@ -51,35 +61,25 @@ function TrustReviewForm() {
             body: JSON.stringify(review)
         }
 
-        fetch('http://localhost:8080/api/reviews', init)
+        fetch(`http://localhost:8080/api/reviews/${id}`, init)
             .then(response => {
-                if (response.status === 201 || response.status === 400) {
+                if (response.status === 204) {
+                    return null
+                } else if (response.status === 400) {
                     return response.json()
                 } else {
                     return Promise.reject.apply(`Unexpected status code: ${response.status}`)
                 }
             })
-            .then(data => {
-                if (data) {
-                    history.push("/products");
+            .then (data => {
+                if(!data) {
+                    history.push("/products")
                 } else {
                     //set errors
                 }
             })
-            .catch(console.log);
+            .catch(console.log)
     }
-
-
-    const handleChange = (event) => {
-        const newReview = {...review}
-
-        newReview.appUserId = user.appUserId;
-
-        newReview[event.target.name] = event.target.value;
-
-        setReview(newReview);
-    }
-
 
     return (
         <div className="form-container">
@@ -109,4 +109,4 @@ function TrustReviewForm() {
 
 }
 
-export default TrustReviewForm;
+export default EditForm;

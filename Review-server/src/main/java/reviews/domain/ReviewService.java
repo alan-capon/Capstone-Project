@@ -16,6 +16,10 @@ public class ReviewService {
         this.repository = repository;
     }
 
+    public Review findById (int id) {
+        return repository.findById(id);
+    }
+
     public List<Review> findAll(){
         return repository.findAll();
     }

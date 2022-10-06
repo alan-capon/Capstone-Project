@@ -14,6 +14,7 @@ function ProductsForm() {
 
     const history = useHistory();
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -51,6 +52,8 @@ function ProductsForm() {
 
         setProduct(newProduct);
     }
+
+
 
     return (
         <div className="form-container">

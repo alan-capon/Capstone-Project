@@ -9,6 +9,8 @@ function Products() {
     const [input, setInput] = useState("");
     const auth = useContext(AuthContext);
 
+  
+
     useEffect(() => {
         fetch("http://localhost:8080/api/products")
             .then(response => response.json())
@@ -56,17 +58,17 @@ function Products() {
             )}
             <div className="container-fluid mt-5 text-center">
                 <div className="row justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-6 d-flex">
                         {filterdProduct.map(product => (
-                            <div class="card" key={product.id}>
-                                <img src="/favicon.ico" class="card-img-top" alt="" />
+                            <div class="card flex-fill " key={product.id}>
+                                {/* <img src="/favicon.ico" class="card-img-top" alt="" /> */}
                                 <div class="card-body">
                                     <h5 class="card-title">{product.name}</h5>
                                     <p class="card-text">{product.description}</p>
                                     <Link to={`/product/reviews/${product.id}`}>
                                         View Reviews
                                     </Link>
-                                    {!auth.user && (
+                                    {auth.user && (
                                         <Link className="addReview" to={`/review/add/${product.id}`}>
                                             Add Review
                                         </Link>                                 
@@ -84,3 +86,29 @@ function Products() {
 }
 
 export default Products;
+
+
+{/* <div className="container-fluid mt-5 text-center">
+                <div className="row justify-content-center">
+                    <div className="col-md-4">
+                        {filterdProduct.map(product => (
+                            <div class="card" key={product.id}>
+                                <img src="/favicon.ico" class="card-img-top" alt="" />
+                                <div class="card-body">
+                                    <h5 class="card-title">{product.name}</h5>
+                                    <p class="card-text">{product.description}</p>
+                                    <Link to={`/product/reviews/${product.id}`}>
+                                        View Reviews
+                                    </Link>
+                                    {auth.user && (
+                                        <Link className="addReview" to={`/review/add/${product.id}`}>
+                                            Add Review
+                                        </Link>                                 
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </div> */}

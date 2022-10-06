@@ -1,10 +1,14 @@
 import "./TrustReviewList.css";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import AuthContext from "../AuthContext";
 
 function TrustReviewList() {
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
+    const auth = useContext(AuthContext);
+
+
 
     useEffect(() => {
         if (id) {
@@ -20,6 +24,29 @@ function TrustReviewList() {
                 .catch(console.log)
         }
     }, [id])
+
+
+    const handleDelete = (reviewId) => {
+        if(window.confirm("Are you sure you want to delete your review")) {
+            const init = {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${auth.user.token}`
+                }
+            }
+
+            fetch(`http://localhost:8080/api/reviews/${reviewId}`, init)
+                .then(response => {
+                    if(response.status === 204) {
+                        const newReviews = reviews.filter(review => review.id !== reviewId)
+                        setReviews(newReviews);
+                    } else {
+                        return Promise.reject.apply(`Unexpected status code: ${response.status}`)
+                    }
+                })
+                .catch(console.log);
+        }
+    }
 
     return (
         <>
@@ -37,28 +64,40 @@ function TrustReviewList() {
                         <h5 class="font-cond mgb-5 fg-text-d fs-130" >{review.username}</h5>
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]" />
                         <p class="fs-110" contenteditable="false">"{review.content}"</p>
-                        <h5 class="font-cond mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
+                        <h5 class="font-cond mgb-5 fg-text-d fs-130" ></h5>
                         <small class="font-cond case-u lts-sm fs-80 fg-text-l">{review.date}</small>
+                        
+                        {auth.user && auth.user.username === review.username && (
+                            <div className="links">
+                                <Link className="edit" style={{ textDecoration: 'none' }} to={`/review/edit/${review.id}`}>Edit</Link>
+                                <Link className="delete" style={{ textDecoration: 'none' }} onClick={() => handleDelete(review.id)}>Delete</Link>      
+                            </div>      
+                        )}   
                     </li>
-                    ))}
-                    
-                    {/* <li>
-                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
-                            <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
-                            <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Ariana Menage</h5>
-                            <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Recording Artist - Los Angeles</small>
-                    </li>
-                    <li>
-                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
-                            <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
-                            <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Sean Carter</h5>
-                            <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Fund Manager - Chicago</small>
-                    </li> */}
+                    ))}      
                 </ul>
+           
+                   
+                
             </div>
+           
         </>
     )
 
 }
 
 export default TrustReviewList;
+
+
+// {/* <li>
+//                         <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
+//                             <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
+//                             <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Ariana Menage</h5>
+//                             <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Recording Artist - Los Angeles</small>
+//                     </li>
+//                     <li>
+//                         <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
+//                             <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
+//                             <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Sean Carter</h5>
+//                             <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Fund Manager - Chicago</small>
+//                     </li> */}

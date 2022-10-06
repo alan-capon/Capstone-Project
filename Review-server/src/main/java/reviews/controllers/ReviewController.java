@@ -25,6 +25,17 @@ public class ReviewController {
         return service.findAll();
     }
 
+    @GetMapping("/product/{id}")
+    public ResponseEntity<Review> findById(@PathVariable int id) {
+        Review review = service.findById(id);
+
+        if (review == null) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(review, HttpStatus.OK);
+    }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<List<Review>> findByProduct(@PathVariable int id){
         List<Review> reviews = service.findByProduct(id);

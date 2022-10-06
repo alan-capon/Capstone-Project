@@ -2,10 +2,7 @@ package reviews.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reviews.domain.AppUserService;
 import reviews.domain.Result;
 import reviews.models.AppUser;
@@ -18,6 +15,11 @@ public class AppUserController {
 
     public AppUserController(AppUserService service) {
         this.service = service;
+    }
+
+    @GetMapping("/{username}")
+    public AppUser findByUsername(@PathVariable String username) {
+        return service.findByUsername(username);
     }
 
     @PostMapping

@@ -34,6 +34,10 @@ public class AppUserService implements UserDetailsService {
         return appUser;
     }
 
+    public AppUser findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
     public Result<AppUser> create(AppUser appUser) {
         Result<AppUser> result = validate(appUser);
 

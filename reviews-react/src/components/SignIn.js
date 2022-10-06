@@ -1,6 +1,6 @@
 import "./SignIn.css";
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import AuthContext from '../AuthContext';
 
 function SignIn() {
@@ -82,9 +82,11 @@ function SignIn() {
                             Submit
                         </button>
                     </div>
+                    <Link to="/register">
                     <p className="text-center mt-2">
-                        <a href="/register">Don't have an account?</a>
+                        Don't have an account?
                     </p>
+                    </Link>
                 </div>
             </form>
         </div>
