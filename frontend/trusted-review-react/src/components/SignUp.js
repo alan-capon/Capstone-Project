@@ -1,4 +1,5 @@
 import "./SignUp.css";
+import {Link} from 'react-router-dom';
 import React, { useState, useContext } from 'react';
 
 const USER_DEFAULT = {

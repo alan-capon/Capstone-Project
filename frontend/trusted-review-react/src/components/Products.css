@@ -86,3 +86,35 @@
     color: #63a6b0;
     text-decoration: none;
 }
+
+.Here {
+    
+    margin-top: 5px;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+
+    text-align: center;
+  
+    min-height: 1 rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5em;
+    
+    background: linear-gradient(90deg, orange, purple, #cbc3e3,red);;
+    background-clip: text;
+    color: transparent;
+    background-size: 300%;
+    transition: background-position 10s;
+    animation: open-animation 10s infinite;
+
+}
+
+.Here:hover{
+    background-clip: text;
+    background-color: linear-gradient(225deg, grey, lightgrey);
+    color: transparent;
+    background-size: 300%;
+    cursor: pointer;
+}

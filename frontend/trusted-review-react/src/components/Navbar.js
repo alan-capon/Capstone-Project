@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav className="navbar navbar-expand-lg bg-black navbar-dark">
       <div className="container-fluid">
         <Link className="navbar-brand d-block d-lg-none" to="/">
           Trusted Reviews
@@ -27,9 +27,9 @@ function Navbar() {
                 style={{ top: "4px", position: "relative" }}
                 to="/">
 
-                Trusted Reviews                  
+                {/* Trusted Reviews                   */}
                
-            <img src="logo4.png" className= "d-inline-block align-text-top ms-2" width="40px" height="40px"></img>
+            <img src="logo4.png" className= "d-inline-block align-text-top ms-2" width="150px" height="31px"></img>
                 
               </Link>
             </div>
@@ -56,14 +56,14 @@ function Navbar() {
                     About
                   </NavLink>
                 </div>
-                <div className="col-xl-2 col-lg-3 nav-item">
+                <div className="col-xl-1 col-lg-2 nav-item">
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? "nav-link active" : "nav-link"
                     }
                     to="/trustedreviews"
                   >
-                    Trusted Reviews
+                    Reviews
                   </NavLink>
                 </div>
               </div>
