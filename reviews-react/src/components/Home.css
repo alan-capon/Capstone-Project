@@ -1,0 +1,444 @@
+.realHome {
+    
+    margin-top: 210px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+
+    text-align: center;
+  
+    min-height: 1 rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5em;
+    
+    background: linear-gradient(90deg, orange, purple, #cbc3e3,red);
+    background-clip: text;
+    color: transparent;
+    background-size: 300%;
+    transition: background-position 10s;
+    animation: open-animation 15s infinite;
+
+}
+
+.realHome:hover{
+    background-clip: text;
+    color: linear-gradient(225deg, grey, lightgrey);
+
+}
+
+.Here {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: white;
+    text-align: center;
+    min-height: 1 rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5em;
+    background: white;
+    background-clip: text;
+    background-size: 300%;
+}
+
+.Body {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: white;
+    text-align: center;
+    background-clip: text;
+}
+
+.Button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes open-animation {
+    0% {background-position: left}
+    50% {background-position: right}
+    100% {background-position: left}
+    
+    }
+
+
+.Here:hover{
+    background-clip: text;
+    color: linear-gradient(225deg, grey, lightgrey);
+    /* cursor: pointer; */
+}
+
+
+/* New Rings for the home page */
+
+.forAll {
+    text-align: center;
+        max-width: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px;
+        margin-top: 170px;
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+
+    position: relative;
+    width: 100%;
+    margin-bottom: 100px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+}
+
+/* Rings for the home page */
+
+.container .ring1 {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -75px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #242fff;
+    animation: animateTest 2s linear infinite;
+    transition: ease-in-out 5s;
+}
+
+.container .ring2 {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin: -85px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid red;
+    animation: animateTest 3s linear infinite;
+    transition: ease-in-out 5s;
+}
+
+.container .ring3 {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin: -95px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid white;
+    animation: animateTest 4s linear infinite;
+    transition: ease-in-out 5s;
+}
+
+.container .ring4 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin: -27.5px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 0.1px solid white;
+    background: linear-gradient(to top, transparent, white);
+    background-size: 100px 60px;
+    background-color: linear-gradient(to top, transparent, white);
+    animation: animateTest 4s linear infinite;
+    transition: ease-in-out 5s;
+}
+
+.container .ring5 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin: -27.5px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top: none;
+    animation: animateTest 4s linear infinite;
+    animation-delay: -2s;
+    transition: ease-in-out 5s;
+}
+
+@keyframes animateTest {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* All the dots */
+
+.container .ring1::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: blue;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
+    transform-origin: 20px;
+    transition: ease-in-out 5s;
+}
+
+.container .ring2::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 17px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: red;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
+    transform-origin: 20px;
+    transition: 2s;
+    transition: ease-in-out 5s;
+}
+
+.container .ring3::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffea2d;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
+    transform-origin: 20px;
+    transition: 2s;
+    transition: ease-in-out 5s;
+}
+
+.container .ring4:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+    box-shadow: 0 0 5px #00fff9,
+    0 0 10px #00fff9,
+    0 0 15px #00fff9,
+    0 0 20px #00fff9,
+    0 0 25px #00fff9,
+    0 0 30px #00fff9,
+    0 0 35px #00fff9,
+    0 0 40px #00fff9;
+    transform-origin: 20px;
+    transition: ease-in-out 5s;
+}
+
+.container .ring5:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 5px #00fff9,
+    0 0 10px #00fff9,
+    0 0 15px #00fff9,
+    0 0 20px #00fff9,
+    0 0 25px #00fff9,
+    0 0 30px #00fff9,
+    0 0 35px #00fff9,
+    0 0 40px #00fff9;
+    transform-origin: 20px;
+    transition: ease-in-out 5s;
+}
+
+/* For the beam changed hover */
+
+.container:hover .ring1 {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    margin: -85px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid white;
+    animation: animateTest 2s linear infinite;
+    transition: ease-in-out 5s;
+    transform-origin: 85px;  
+}
+
+.container:hover .ring2 {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    margin: -95px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid blue;
+    animation: animateTest 3s linear infinite;
+    transition: ease-in-out 5s;
+    transform-origin: 95px;
+}
+
+.container:hover .ring3 {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    margin: -105px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid red;
+    animation: animateTest 4s linear infinite;
+    transition: ease-in-out 5s;
+    transform-origin: 105px;
+}
+
+/* This is for the dot remade */
+
+.container:hover .ring1::before {    
+    margin-bottom: 100px;
+    position: absolute;
+    top: 100px;
+    right: 102px;
+    width: 13px;
+    height: 13px;
+    margin: -85px;
+    border-radius: 50%;
+    
+    transition: ease-in-out 5s;
+    background: white;
+    box-shadow: 0 0 0 5px #f4f4f433,
+    0 0 0 10px #f4f4f422,
+    0 0 0 20px #f4f4f411,
+    0 0 20px white,
+    0 0 50px white;
+    transform-origin: 20px;
+}
+
+.container:hover .ring2::before {    
+    margin-bottom: 100px;
+    position: absolute;
+    top: 102px;
+    right: 106px;
+    width: 13px;
+    height: 13px;
+    margin: -85px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 1px solid blue;
+    
+    transition: ease-in-out 5s;
+    background: blue;
+    box-shadow: 0 0 0 5px #242fff33,
+    0 0 0 10px #242fff22,
+    0 0 0 20px #242fff11,
+    0 0 20px #242fff,
+    0 0 50px #242fff;
+    transform-origin: 20px;
+}
+
+.container:hover .ring3::before {    
+    margin-bottom: 100px;
+    position: absolute;
+    top: 110px;
+    right: 102.5px;
+    width: 13px;
+    height: 13px;
+    margin: -85px;
+    border-radius: 50%;
+
+    transition: ease-in-out 5s;
+    background: #f81c1c;
+    box-shadow: 0 0 5px #e41cf833,
+    0 0 10px #f81c1c22,
+    0 0 15px #e41cf811,
+    0 0 20px #d031b311,
+    0 0 25px #d031b211,
+    0 0 30px #d031b111,
+    0 0 35px #f81c1c,
+    0 0 40px #f81c1c;
+    transform-origin: 20px;
+}
+
+.container:hover .ring4:before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
+    transform-origin: 20px;
+    transition: ease-in-out 5s;
+}
+
+.container:hover .ring5:before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    right: 49px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
+    transform-origin: 20px;
+    transition: ease-in-out 5s;
+}

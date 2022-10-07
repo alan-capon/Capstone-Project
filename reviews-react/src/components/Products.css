@@ -1,0 +1,71 @@
+.Products {
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+
+    background-clip: text;
+    color: transparent;
+}
+
+.add {
+    background-color: white;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    background-clip: text;
+    color: transparent;
+}
+
+
+.Title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3.5em;
+}
+
+.Description {
+    font-family: Haettenschweiler;
+    color: white;
+    font-size: 1.5em;
+}
+
+/* .card-img-top {
+    width: 100px;
+    height: 200px;
+    /* object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+} */ 
+
+.card-body {
+    box-shadow: 0 33px 61px -29px rgb(0 0 0 / 26%);
+}
+
+.card {
+    width: 300px;
+    height: 175px;
+    margin: 20px 10px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    /* overflow: hidden; */
+    border-radius: 15px;
+}
+
+.card-body a {
+    color: #0c7f90;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: auto;
+    font-weight: 600;
+}
+
+.card-body a:hover {
+    color: #63a6b0;
+    text-decoration: none;
+}
+
+.addReview {
+    padding-left: 30px;
+}

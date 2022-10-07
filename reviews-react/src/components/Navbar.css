@@ -1,0 +1,71 @@
+/* Messes with the Home Page setting */
+
+html, body, #root {
+    height: 100%;
+}
+
+.navbar-nav {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    /* width:600px; */
+}
+.navbar-nav li {
+    /* width:200px; */
+    float:left;
+}
+
+.navbar-brand {
+    /* font-family: cursive; */
+    color: white;
+    /* cursor: pointer; */
+}
+
+.navbar-brand:hover {
+    background: linear-gradient(45deg, orange, purple, #cbc3e3,red);;
+    background-clip: text;
+    color: transparent;
+    background-size: 300%;
+    transition: background-position 10s;
+    animation: hovs-animation 5s infinite;
+    opacity: 0.9;
+}
+
+@keyframes hovs-animation {
+    0% { background-position: left}
+    50% { background-position: right}
+    100% { background-position: left}
+}
+
+body {
+    /* font-family: fantasy; */
+    /* min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    line-height: 1.6;
+    color: #333; */
+    animation: background-gradient 180s;
+    animation-iteration-count: infinite;
+    backface-visibility: hidden;
+    animation-timing-function: ease-in-out;
+    /* background-color: black ; */
+
+     background-image: radial-gradient(circle at 70% 190%, transparent, black, darkgrey);
+    }
+  
+  @keyframes background-gradient {
+  0% {
+  background-color: black;
+  background-position: left
+  }
+  50% {
+  background-color: darkgrey;
+  background-position: right;
+  }
+  100% {
+  background-color: black;
+  background-position: left;
+  }
+}
