@@ -44,16 +44,18 @@ function Home() {
                     <div className='ring5'></div>
                 </div>
 
-                <div className="AllOptions">
+                
+
+
+            </div>
+        
+            <div className="AllOptions">
                     <div className="btn btn-primary mb-1 PlayMusic" onClick={() => sound.play()}>Play Featured</div>
                     <div></div>
                     <div className="btn btn-primary mb-1 PauseMusic" onClick={() => sound.pause()}>Pause</div>
                     <div></div>
                     <div className="btn btn-primary StopMusic" onClick={() => sound.stop()}>Stop</div>
                 </div>
-
-
-            </div>
         </>
     )
 }
