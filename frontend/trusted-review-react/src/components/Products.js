@@ -1,21 +1,10 @@
 import "./Products.css";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Howl } from "howler"
-import Song1 from './Alone.mp3'
-import Song2 from './BounceGen.mp3'
+
 
 function Products() {
     
-    const randomNum = Math.floor(Math.random() * 2);
-    console.log(randomNum)
-    const songArray = [Song1, Song2]
-    const sound = new Howl({
-        src: [songArray[randomNum]],
-        volume: 0.09,
-        html5: true,});
-
-    // if (randomNum === 1):
         
     const [products, setProducts] = useState([]);
     const [filterdProduct, setFilteredProduct] = useState(products);
@@ -65,7 +54,8 @@ function Products() {
                 <h2 className="Description">Discover reviews on the latest products</h2>
                 <input type="text" className="rounded mt-4 w-25 text-center" placeholder="Enter a Product" 
                 value={input} onChange={handleChange}/>
-                <button className="btn btn-success" type="submit" onClick={() => handleSearch(input)}>
+                <div></div>
+                <button className="btn btn-success btnSearch" type="submit" onClick={() => handleSearch(input)}>
                     Search
                 </button>
             </div>
@@ -87,10 +77,8 @@ function Products() {
 
                                     <div>
              {/* <h2 className = "realHome">Home Page</h2> */}
-             <div className = "Here" onClick= {() => sound.play()}>Home Page</div>
-             <div className = "Here" onClick= {() => sound.pause()}>Pause</div>
-             <div className = "Here" onClick= {() => sound.stop()}>Stop</div>
-             </div> 
+             
+             </div>
 
                     </div>
 

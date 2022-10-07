@@ -56,3 +56,30 @@
     color: #63a6b0;
     text-decoration: none;
 }
+
+.btnSearch {
+    margin-top: 5px;
+}
+
+.AllOptions {
+    color: white;
+}
+
+.PlayMusic {
+background-color: darkcyan;
+
+
+}
+
+.PauseMusic {
+background-color: darkgoldenrod;
+margin-top: 10px;
+margin-bottom: 10px;
+
+}
+
+.StopMusic {
+    background-color: darkred;
+
+
+}

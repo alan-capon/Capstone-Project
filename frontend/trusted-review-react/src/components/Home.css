@@ -195,11 +195,14 @@
     height: 8px;
     border-radius: 50%;
     background: blue;
-    box-shadow: 0 0 0 5px #242fff33,
-    0 0 0 10px #242fff22,
-    0 0 0 20px #242fff11,
-    0 0 20px #242fff,
-    0 0 50px #242fff;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
     transform-origin: 20px;
     transition: ease-in-out 5s;
 }
@@ -208,16 +211,19 @@
     content: '';
     position: absolute;
     top: 20px;
-    right: 16px;
+    right: 17px;
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #f81c1c;
-    box-shadow: 0 0 0 5px #e41cf833,
-    0 0 0 10px #f81c1c22,
-    0 0 0 20px #e41cf811,
-    0 0 20px #f81c1c,
-    0 0 50px #f81c1c;
+    background: red;
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
+    0 0 20px #ffea2d,
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
     transform-origin: 20px;
     transition: 2s;
     transition: ease-in-out 5s;
@@ -232,11 +238,14 @@
     height: 8px;
     border-radius: 50%;
     background: #ffea2d;
-    box-shadow: 0 0 0 5px #93ff2d33,
-    0 0 0 10px #ffff2d22,
-    0 0 0 20px #ffff2d11,
+    box-shadow: 0 0 5px #ffea2d,
+    0 0 10px #ffea2d,
+    0 0 15px #ffea2d,
     0 0 20px #ffea2d,
-    0 0 50px #ffea2d;
+    0 0 25px #ffea2d,
+    0 0 30px #ffea2d,
+    0 0 35px #ffea2d,
+    0 0 40px #ffea2d;
     transform-origin: 20px;
     transition: 2s;
     transition: ease-in-out 5s;
@@ -336,8 +345,6 @@
     height: 13px;
     margin: -85px;
     border-radius: 50%;
-    border: 4px solid transparent;
-    border-top: 1px solid black;
     
     transition: ease-in-out 5s;
     background: white;
@@ -353,13 +360,13 @@
     margin-bottom: 100px;
     position: absolute;
     top: 102px;
-    right: 104px;
+    right: 106px;
     width: 13px;
     height: 13px;
     margin: -85px;
     border-radius: 50%;
     border: 4px solid transparent;
-    border-top: 1px solid black;
+    border-top: 1px solid blue;
     
     transition: ease-in-out 5s;
     background: blue;
@@ -374,22 +381,23 @@
 .container:hover .ring3::before {    
     margin-bottom: 100px;
     position: absolute;
-    top: 104px;
-    right: 106px;
+    top: 110px;
+    right: 102.5px;
     width: 13px;
     height: 13px;
     margin: -85px;
     border-radius: 50%;
-    border: 4px solid transparent;
-    border-top: 1px solid black;
-    
+
     transition: ease-in-out 5s;
     background: #f81c1c;
-    box-shadow: 0 0 0 5px #e41cf833,
-    0 0 0 10px #f81c1c22,
-    0 0 0 20px #e41cf811,
-    0 0 20px #f81c1c,
-    0 0 50px #f81c1c;
+    box-shadow: 0 0 5px #e41cf833,
+    0 0 10px #f81c1c22,
+    0 0 15px #e41cf811,
+    0 0 20px #d031b311,
+    0 0 25px #d031b211,
+    0 0 30px #d031b111,
+    0 0 35px #f81c1c,
+    0 0 40px #f81c1c;
     transform-origin: 20px;
 }
 
