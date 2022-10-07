@@ -32,8 +32,6 @@ function TrustReviewForm() {
     }
 
 
-
-
     const history = useHistory();
 
     const [review, setReview] = useState(REVIEW_DEFAULT);
@@ -80,6 +78,7 @@ function TrustReviewForm() {
         setReview(newReview);
     }
 
+    console.log(review)
 
     return (
         <div className="form-container">
@@ -94,6 +93,15 @@ function TrustReviewForm() {
                             name="content"
                             className="form-control mt-1"
                             value={review.content}
+                            onChange={handleChange}
+                        />
+                        <label>Date:</label>
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            className="form-control mt-1"
+                            value={review.date}
                             onChange={handleChange}
                         />
                     </div>

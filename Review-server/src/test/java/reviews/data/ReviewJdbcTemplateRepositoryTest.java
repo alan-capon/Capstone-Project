@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 class ReviewJdbcTemplateRepositoryTest {
 
     @Autowired
@@ -42,6 +42,13 @@ class ReviewJdbcTemplateRepositoryTest {
         List<Review> result = repository.findByProduct(1);
         assertNotNull(result);
         assertTrue(result.size() == 1);
+    }
+
+    @Test
+    void shouldFindById() {
+        Review review = repository.findById(2);
+        assertNotNull(review);
+        assertEquals(review.getId(), 2);
     }
 
     @Test

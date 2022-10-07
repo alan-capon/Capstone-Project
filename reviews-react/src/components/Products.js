@@ -41,8 +41,8 @@ function Products() {
     return (
         <>
             <div className="Products">
-                <h1 className="Title">TrustedReviews</h1>
-                <h2 className="Description">Discover reviews on the latest products</h2>
+                <h2 className="Title">Discover reviews on the latest products</h2>
+                {/* <h2 className="Description"></h2> */}
                 <input type="text" className="rounded mt-4 w-25 text-center" placeholder="Enter a Product"
                     value={input} onChange={handleChange} />
                 <button className="btn btn-primary" type="submit" onClick={() => handleSearch(input)}>
@@ -56,9 +56,9 @@ function Products() {
                     </Link>
                 </div>
             )}
-            <div className="container-fluid mt-5 text-center">
-                <div className="row justify-content-center">
-                    <div className="col-6 d-flex">
+            <div className="container-flex mt-5 text-center justify-content-center">
+                 <div className="row justify-content-center">
+                     <div className="col-3">
                         {filterdProduct.map(product => (
                             <div class="card flex-fill " key={product.id}>
                                 {/* <img src="/favicon.ico" class="card-img-top" alt="" /> */}
@@ -76,10 +76,16 @@ function Products() {
                                 </div>
                             </div>
                         ))}
-
+        
                     </div>
                 </div>
             </div>
+
+
+
+
+
+            
         </>
 
     )
@@ -87,28 +93,3 @@ function Products() {
 
 export default Products;
 
-
-{/* <div className="container-fluid mt-5 text-center">
-                <div className="row justify-content-center">
-                    <div className="col-md-4">
-                        {filterdProduct.map(product => (
-                            <div class="card" key={product.id}>
-                                <img src="/favicon.ico" class="card-img-top" alt="" />
-                                <div class="card-body">
-                                    <h5 class="card-title">{product.name}</h5>
-                                    <p class="card-text">{product.description}</p>
-                                    <Link to={`/product/reviews/${product.id}`}>
-                                        View Reviews
-                                    </Link>
-                                    {auth.user && (
-                                        <Link className="addReview" to={`/review/add/${product.id}`}>
-                                            Add Review
-                                        </Link>                                 
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                </div>
-            </div> */}

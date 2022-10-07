@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import "./Navbar.css";
 import AuthContext from '../AuthContext';
 
+
 function Navbar() {
 
   const auth = useContext(AuthContext);
@@ -32,9 +33,10 @@ function Navbar() {
                 style={{ top: "4px", position: "relative" }}
                 to="/">
 
-                Trusted Reviews
+                {/* Trusted Reviews */}
 
-                <img src="logo4.png" className="col-xl-4 col-lg-5" width="40px" height="40px"></img>
+                <img src="logo4.png" className= "d-inline-block align-text-top ms-2" width="130px" height="50px"></img>
+
 
               </Link>
             </div>

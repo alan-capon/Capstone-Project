@@ -66,17 +66,49 @@ li {
 }  
 
 .links {
-    margin-top: 20px;
+    
     font-size: 20px;
     
 }
 
 .edit {
-    color: #151E3F
+    color: #09237f;
 }
 
 .delete {
     padding-left: 25px;
-    color: #151E3F;
+    color: #09237f;
 }
 
+.thumbsup {  
+    cursor: pointer;
+    transition: .3s;
+}
+
+.thumbsup:hover{
+    transform: scale(1.25);
+  }
+
+  .thumbsdown {
+    margin-left: 40px;
+    cursor: pointer;
+    transition: .3s;
+    
+  }
+
+  .thumbsdown:hover{
+    transform: scale(1.25);
+  }
+
+
+  figure {
+    display: inline-block;
+  }
+
+  figcaption {
+    text-align: center;
+}
+
+.dislike {
+    padding-left: 40px;
+}

@@ -27,7 +27,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
                 from product_reviews;
                 """;
 
-        return jdbcTemplate.query(sql, new ReviewMapper());
+        return jdbcTemplate.query(sql, new ReviewOnlyMapper());
     }
 
     @Override
@@ -64,15 +64,15 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository {
 
         return jdbcTemplate.query(sql, new ReviewMapper(), id);
     }
-    @Override
-    public List<Review> findByUser(int userId) {
-        final String sql = """
-                select product_review_id, app_user_id, product_id, date, review
-                from product_reviews
-                where app_user_id = ?;
-                """;
-        return jdbcTemplate.query(sql, new ReviewMapper(), userId);
-    }
+//    @Override
+//    public List<Review> findByUser(int userId) {
+//        final String sql = """
+//                select product_review_id, app_user_id, product_id, date, review
+//                from product_reviews
+//                where app_user_id = ?;
+//                """;
+//        return jdbcTemplate.query(sql, new ReviewMapper(), userId);
+//    }
 
     @Override
     public Review add(Review review) {

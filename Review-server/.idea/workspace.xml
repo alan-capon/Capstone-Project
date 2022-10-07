@@ -6,20 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a0f7f8ba-1935-4073-b8c2-058ae8b26b17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/AppUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/controllers/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewJdbcTemplateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/data/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/AppUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/domain/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/models/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reviews/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reviews/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/controllers/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/reviews/data/ProductJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/reviews/data/ProductJdbcTemplateRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/reviews/data/ReviewJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/reviews/data/ReviewJdbcTemplateRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/ReviewJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/ReviewJdbcTemplateRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/reviews/data/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/data/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/AppUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/domain/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/domain/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/reviews/models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/reviews/models/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/reviews/data/ProductJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/reviews/data/ProductJdbcTemplateRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/reviews/data/ReviewJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/reviews/data/ReviewJdbcTemplateRepositoryTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +68,13 @@
       <recent name="reviews.data" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/product_reviews" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="Chapa661!" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="reviews.App" />
       <module name="Review-server" />
       <extension name="coverage">
@@ -85,66 +87,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductJdbcTemplateRepositoryTest.shouldAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="Application" factoryName="Application">
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/product_reviews" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="Chapa661!" />
+      </envs>
       <module name="Review-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="reviews.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldAdd" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductJdbcTemplateRepositoryTest.shouldFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
       <module name="Review-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="reviews.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldFindById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductJdbcTemplateRepositoryTest.shouldFindByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Review-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="reviews.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldFindByName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductJdbcTemplateRepositoryTest.shouldUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Review-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="reviews.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="reviews.data" />
-      <option name="MAIN_CLASS_NAME" value="reviews.data.ProductJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldUpdate" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/product_reviews_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="Chapa661!" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,10 +114,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldUpdate" />
-        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldAdd" />
-        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldFindById" />
-        <item itemvalue="JUnit.ProductJdbcTemplateRepositoryTest.shouldFindByName" />
       </list>
     </recent_temporary>
   </component>
